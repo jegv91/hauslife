@@ -58,7 +58,6 @@ class Residente
    
    /**
     * Regresa todos los datos de los residentes registrados
-    * @param $nombre, el nombre del residente
     */
    function getInfoResidentes(){
    	//conectar a mongoDB
@@ -73,7 +72,7 @@ class Residente
    
    /**
     * Regresa todos los datos de un residente de acuerdo al id
-    * @param $nombre, el nombre del residente
+    * @param $id, el id del residente
     */
    function getInfoResidente($id){
    	//conectar a mongoDB

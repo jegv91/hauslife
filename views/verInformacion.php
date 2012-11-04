@@ -24,6 +24,7 @@ $data=$res->getInfoResidente($id);
 		<h1>Informaci&oacute;n del residente</h1>		
 			<table class="table table-bordered">
 			<tr><th>Nombre</th><td><?php echo $data["nombre"]?></td></tr>
+			<tr><th>Matr&iacute;cula</th><td><?php echo $data["matricula"]?></td></tr>
 			<tr><th>Edificio</th><td><?php echo $data["edificio"]?></td></tr>
 			<tr><th>N&uacute;mero de cuarto</th><td><?php echo $data["numeroCuarto"]?></td></tr>
 			<tr><th>Estado de procedencia</th><td><?php echo $data["estadoProcedencia"]?></td></tr>
@@ -33,7 +34,7 @@ $data=$res->getInfoResidente($id);
 			<tr><th>Tel&eacute;fono de los padres</th><td><?php echo $data["telefonoPadres"]?></td></tr>
 			<tr><th>Comentarios</th><td><?php echo $data["comentarios"]?></td></tr>
 			</table>
-			<a class='btn btn-primary' href='listaResidentes.php'>Regresar</a>
+			<a class='btn btn-primary' href='listaResidentes.php'><i class='icon-arrow-left icon-white'></i> Regresar</a>
 		</div>
 		<br /> <br />
 		<?php //include_once("../views/footer.html");?>

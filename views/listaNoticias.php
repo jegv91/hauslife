@@ -1,9 +1,9 @@
 <?php 
-require_once '../models/residente.php';
-//Objeto residente
-$res=new Residente();
-//Llamar a funcion para obtener el array asociativo con la informacion de cada residente
-$lista=$res->getInfoResidentes();
+require_once '../models/noticia.php';
+//Objeto noticia
+$not=new Noticia();
+//Llamar a funcion para obtener el array asociativo con la informacion de cada noticia
+$lista=$not->getInfoNoticias();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,13 +22,13 @@ $lista=$res->getInfoResidentes();
 	<?php //include_once("../views/header_index.php");?>
 	<br/><br/>
 		<div class="container">
-		<h1>Lista de residentes</h1>
+		<h1>Listado de noticias publicadas</h1>
 			<table class="table table-bordered">
-			<tr><th colspan=2>Nombre</th></tr>
+			<tr><th colspan=2>Noticia</th></tr>
 			<?php			
 			foreach ($lista as $obj) {
-				echo "<tr><td>".$obj["nombre"]."</td>";				
-				echo "<td><a class='btn btn-primary' href='verInformacion.php?id=".$obj["_id"]."'><i class='icon-user icon-white'></i>Ver Informaci&oacute;n</a></td></tr>";
+				echo "<tr><td>".$obj["titulo"]."</td>";				
+				echo "<td><a class='btn btn-primary' href='../controllers/enviarNoticia.php?id=".$obj["_id"]."'><i class='icon-envelope icon-white'></i> Enviar por e-mail</a></td></tr>";
 			}
 			?>
 			</table>
