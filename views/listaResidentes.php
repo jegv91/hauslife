@@ -24,14 +24,17 @@ $lista=$res->getInfoResidentes();
 		<div class="container">
 		<h1>Lista de residentes</h1>
 			<table class="table table-bordered">
-			<tr><th colspan=2>Nombre</th></tr>
+			<tr><th colspan=3>Nombre</th></tr>
 			<?php			
 			foreach ($lista as $obj) {
 				echo "<tr><td>".$obj["nombre"]."</td>";				
-				echo "<td><a class='btn btn-primary' href='verInformacion.php?id=".$obj["_id"]."'><i class='icon-user icon-white'></i>Ver Informaci&oacute;n</a></td></tr>";
+				echo "<td><a class='btn btn-primary' href='verInformacion.php?id=".$obj["_id"]."'><i class='icon-user icon-white'></i>Ver Informaci&oacute;n</a></td>";
+				echo "<td><a class='btn btn-danger' href='../controllers/eliminarResidente.php?id=".$obj["_id"]."'><i class='icon-trash icon-white'></i>Eliminar residente</a></td></tr>";
+					
 			}
 			?>
 			</table>
+			<a class='btn' href='registraResidente.php'><i class='icon-user'></i>Registrar residente</a>
 		</div>
 		<br /> <br />
 		<?php //include_once("../views/footer.html");?>
