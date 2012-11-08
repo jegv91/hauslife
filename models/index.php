@@ -7,7 +7,7 @@
 require_once 'eventos.php';
 
 $cosa = new Evento();
-echo $cosa->fechaInicio;
+$cosa->registrarEvento();
 
 ?>
 
