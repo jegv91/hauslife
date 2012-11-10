@@ -38,6 +38,14 @@ class Residente
 	   $this->telefonoPadres="";
 	   $this->comentarios=""; 
    }
+      
+   private function getVariablesClase(){
+   	$variables = get_class_vars(__CLASS__);
+   	foreach ($variables as $key=>$value) {
+   		$variables[$key] = $this->$key;
+   	}
+   	return $variables;
+   }
    
    /**
     * Registra un residente en la base de datos
@@ -49,10 +57,7 @@ class Residente
 		//seleccionar la coleccion residente
 		$collection = $conexion->seleccionarColeccion($db, "residente");
 		// agregar un registro
-		$residente=array( "nombre" => $this->nombre, "matricula" => $this->matricula, "numeroCuarto" => $this->numeroCuarto, "edificio" => $this->edificio,
-			   			"estadoProcedencia" => $this->estadoProcedencia, "telefonoEmergencia" => $this->telefonoEmergencia,
-			   			"alergias" => $this->alergias, "enfermedades" => $this->enfermedades, "telefonoPadres" => $this->telefonoPadres,
-			   			"comentarios" => $this->comentarios );
+		$residente=$this->getVariablesClase();
 		$collection->insert($residente);
    }
    
@@ -83,8 +88,8 @@ class Residente
 	   	$db = $conexion->conectar();
 	   	//seleccionar la coleccion residente
 	   	$collection = $conexion->seleccionarColeccion($db, "residente");
-	   	// agregar un registro
-	   $collection->remove(array('_id' => new MongoId($idResidente)));
+	   	// eliminar un registro
+	    $collection->remove(array('_id' => new MongoId($idResidente)));
    }
    
    /**

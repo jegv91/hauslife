@@ -47,6 +47,14 @@ class Noticia
    	}
    }
    
+   private function getVariablesClase(){
+   	$variables = get_class_vars(__CLASS__);
+   	foreach ($variables as $key=>$value) {
+   		$variables[$key] = $this->$key;
+   	}
+   	return $variables;
+   }
+   
    /**
     * Registra una noticia en la base de datos
     */
@@ -57,9 +65,8 @@ class Noticia
    	//seleccionar la coleccion noticia
    $collection = $conexion->seleccionarColeccion($db, "noticia");
    	// agregar un registro
-   $noticia=array( "idPrefecto" => $this->idPrefecto, "fecha" => $this->fecha, "hora" => $this->hora,
-   		"titulo" => $this->titulo, "descripcion" =>  $this->descripcion );
-   	$collection->insert($noticia);
+   $noticia = $this->getVariablesClase();
+   $collection->insert($noticia);
    }
    
    /**
