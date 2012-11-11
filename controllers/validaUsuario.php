@@ -10,7 +10,7 @@
     }
     // Datos proporcionados por el usuario
     $user = $_POST['user'];
-    $passwd = $_POST['passwd'];
+    $passwd = $_POST['password'];
 	
     // Registro de los errores
     $error = "";
@@ -18,7 +18,7 @@
 		/*Validar como esta el usuario*/
 		/*Patron para la matricula completa*/
 		$patron1 = '^[aAlL]\\d{8}$';
-		/*Patron para la matricula o nomina sin los a0s*/
+		/*Patron para la matricula sin los a0s*/
 		$patron2 = '^[\\d]{6,7}$';
 		/*Verificamos el patron que uso para obtener el usuario*/
 		if(preg_match("/".$patron1."/", $user)){
