@@ -8,78 +8,70 @@ require_once 'conexionDB.php';
 /** 
 *  Modelo de usuario 
 */ 
-class Usuario
-{ 
-   private $matricula;
-   private $pass;
-   private $tipo;
-    
-   /**
-    *  Constructor
-    *  @return void
-    */
-   public function __construct($matricula, $pass, $tipo=NULL){
-	   $this->matricula=$matricula;
-	   $this->pass=$pass;
-	   $this->tipo=$tipo;
-   }
-      
-	private function getVariablesClase(){
+class Usuario extends ConexionDB { 
+
+	private $matricula;
+	private $pass;
+	private $tipo;
+
+	public function __construct() {
+		$this->getVariablesClase(true);
+	}
+
+	public function __get($property) {
+		if (property_exists($this, $property)) {
+			return $this->$property;
+		}
+	}
+
+	public function __set($property, $value) {
+		if (property_exists($this, $property)) {
+			$this->$property = $value;
+		}
+	}
+
+	private function getVariablesClase($value = false){
 		$variables = get_class_vars(__CLASS__);
-		foreach ($variables as $key=>$value) {
-			$variables[$key] = $this->$key;
+		if ($value){
+			foreach ($variables as $key=>$value) {
+				$variables[$key] = "";
+			}
+		} else {
+			foreach ($variables as $key=>$value) {
+				$variables[$key] = $this->$key;
+			} 
 		}
 		return $variables;
-   }
-   
-   /**
-    * Registra un usuario en la base de datos
-    */
-   function registrarUsuario(){
-		//conectar a mongoDB
-		$conexion= new ConexionDB();
-		$db = $conexion->conectar();
-		//seleccionar la coleccion residente
-		$collection = $conexion->seleccionarColeccion($db, "usuario");
-		// agregar un registro
-		$residente=$this->getVariablesClase();
-		$collection->insert($residente);
-   }
-   
-   /*
-    * Getters dinamicos
-    */
-   public function __get($property) {
-   	if (property_exists($this, $property)) {
-   		return $this->$property;
-   	}
-   }
-   
-   /*
-    * Setters dinamicos
-   */
-   public function __set($property, $value) {
-   	if (property_exists($this, $property)) {
-   		$this->$property = $value;
-   	}
-   }
-  
-   
-   /**
-    * Regresa todos los datos de un residente de acuerdo al id
-    * @param $id, el id del residente
-    */
-   function buscaUsuario($matricula){
-	   	//conectar a mongoDB
-	   	$conexion= new ConexionDB();
-	   	$db = $conexion->conectar();
-	   	//seleccionar la coleccion residente
-	    $collection = $conexion->seleccionarColeccion($db, "usuario");
-		//query para buscar al residente
-	    $cursor = $collection->findOne(array('_id' => new MongoId($id)));
-	   	return $cursor;   	   	
-   }
-   
+	}
+
+	private function getVariablesClase($value = false){
+		$variables = get_class_vars(__CLASS__);
+		if ($value){
+			foreach ($variables as $key=>$value) {
+				$variables[$key] = "";
+			}
+		} else {
+			foreach ($variables as $key=>$value) {
+				$variables[$key] = $this->$key;
+			} 
+		}
+		return $variables;
+	}
+
+	public function registrarUsuario(){
+		$this->seleccionarColeccion('usuario');
+		$usuario = $this->getVariablesClase();
+		$this->guardar($usuario);
+	}
+
+	
+	public function buscaUsuario($matricula){
+		$this->seleccionarColeccion('noticia');
+		$usuario = array('matricula' => $matricula);
+		$result = $this->buscar($usuario);
+		return $result;   	   	
+	}
+
 }
-   ?>
-    
+?>
+

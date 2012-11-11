@@ -28,7 +28,7 @@ class ConexionDB {
 		if (is_null($condicion)) {
 			$result = $this->collection->find();
 		} else {
-			$resul = $this->collection->find($condicion);
+			$result = $this->collection->findOne($condicion);
 		}
 		return $result;
 	}
