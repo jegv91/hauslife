@@ -236,6 +236,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../bootstrap/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../bootstrap/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../bootstrap/ico/apple-touch-icon-57-precomposed.png">
+	<script src="../JavaScripts/validaRegistro.js"></script>
   </head>
 
   <body>
@@ -257,8 +258,8 @@
           <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
           <div class="nav-collapse collapse">
             
-			<form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Matr&iacute;cula">
+			<form class="navbar-form pull-right" action="../Controllers/validaUsuario.php" onsubmit="return validaUsuario(this)" method="post">
+              <input class="span2" type="user" placeholder="Matr&iacute;cula">
               <input class="span2" type="password" placeholder="Contrase&ntilde;a">
               <button type="submit" class="btn">Entrar</button>
             </form>
