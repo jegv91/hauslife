@@ -59,16 +59,16 @@ class Noticia extends ConexionDB {
 		return $result;
 	}
 	
-	public function getInfoNoticia($id){
+	public function getInfoNoticia($idNoticia){
 		$this->seleccionarColeccion('noticia');
-		$residente = array('_id' => new MongoId($id));
-		$result = $this->buscar($residente);
+		$noticia = array('_id' => new MongoId($idNoticia));
+		$result = $this->buscar($noticia);
 		return $result; 	   	
 	}
 
 	public function eliminarNoticia($idNoticia){
 		$this->seleccionarColeccion('noticia');
-		$array = array('_id' => new MongoId($idResidente));
+		$array = array('_id' => new MongoId($idNoticia));
 		$this->borrar($array);
 	}
 

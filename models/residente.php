@@ -61,9 +61,9 @@ class Residente extends ConexionDB{
 		return $result; 
 	}
 
-	public function getInfoResidente($id){
+	public function getInfoResidente($idResidente){
 		$this->seleccionarColeccion('residente');
-		$residente = array('_id' => new MongoId($id));
+		$residente = array('_id' => new MongoId($idResidente));
 		$result = $this->buscar($residente);
 		return $result; 
 	}

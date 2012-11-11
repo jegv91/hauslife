@@ -1,6 +1,6 @@
 <?php 
 /** 
-*  Clase Residente
+*  Clase Evento
 *  @author Hector Jesus De La Garza Ponce 
 *  @version 1.0 
 */ 
@@ -8,7 +8,7 @@ require_once 'conexionDB.php';
 /** 
 *  Modelo de residente 
 */ 
-class Evento { 
+class Evento extends ConexionDB{ 
 
 	private $fechaInicio;
 	private $fechaTermino;
@@ -20,68 +20,61 @@ class Evento {
 	private $telefonoPadres;
 	private $idPrefecto;
 
-	 /** 
-	 *  Constructor 
-	 *  @return void 
-	 */ 
-	 public function __construct() {
-	 }
+	public function __construct() {
+		$this->getVariablesClase(true);
+	}
 
-	//Get dinamicos
-	 public function __get($property) {
-	 	if (property_exists($this, $property)) {
-	 		return $this->$property;
-	 	}
-	 }
+	public function __get($property) {
+		if (property_exists($this, $property)) {
+			return $this->$property;
+		}
+	}
 
-	//Set dinamicos
-	 public function __set($property, $value) {
-	 	if (property_exists($this, $property)) {
-	 		$this->$property = $value;
-	 	}
-	 }
+	public function __set($property, $value) {
+		if (property_exists($this, $property)) {
+			$this->$property = $value;
+		}
+	}
 
-	private function getVariablesClase(){
+	private function getVariablesClase($value = false){
 		$variables = get_class_vars(__CLASS__);
-	 	foreach ($variables as $key=>$value) {
-	 		$variables[$key] = $this->$key;
-	 	}
-	 	return $variables;
+		if ($value){
+			foreach ($variables as $key=>$value) {
+				$variables[$key] = "";
+			}
+		} else {
+			foreach ($variables as $key=>$value) {
+				$variables[$key] = $this->$key;
+			} 
+		}
+		return $variables;
 	}
 
-	 public function registrarEvento(){
-		//conectar a mongoDB
-	 	$conexion= new ConexionDB();
-	 	$db = $conexion->conectar();
-		//seleccionar la coleccion residente
-	 	$collection = $conexion->seleccionarColeccion($db, "evento");
-	 	$evento = $this->getVariablesClase();
-		// agregar un Evento
-	 	$collection->insert($evento);
-	 }
-
-	 public function getInfoEventos(){
-		//conectar a mongoDB
-	 	$conexion= new ConexionDB();
-	 	$db = $conexion->conectar();
-		//seleccionar la coleccion residente
-	 	$collection = $conexion->seleccionarColeccion($db, "evento");
-		//query para buscar al residente
-	 	$result = $collection->find();
-	 	return $result;
-	 }
-
-	 
-	 public function getInfoEvento($id){
-		//conectar a mongoDB
-	 	$conexion= new ConexionDB();
-	 	$db = $conexion->conectar();
-		//seleccionar la coleccion residente
-	 	$collection = $conexion->seleccionarColeccion($db, "evento");
-		//query para buscar al residente
-	 	$cursor = $collection->findOne(array('_id' => new MongoId($id)));
-	 	return $cursor;         
-	 }
+	public function registrarEvento(){
+		$this->seleccionarColeccion('evento');
+		$evento = $this->getVariablesClase();
+		$this->guardar($evento);
 	}
-	?>
+
+	public function getInfoEventos(){
+		$this->seleccionarColeccion('evento');
+		$result = $this->buscar();
+		return $result;
+	}
+
+
+	public function getInfoEvento($idEvento){
+		$this->seleccionarColeccion('evento');
+		$evento = array('_id' => new MongoId($idEvento));
+		$result = $this->buscar($evento);
+		return $result;     
+	}
+
+	public function eliminarEvento($idEvento){
+		$this->seleccionarColeccion('evento');
+		$array = array('_id' => new MongoId($idEvento));
+		$this->borrar($array);
+	}
+}
+?>
 

@@ -44,20 +44,6 @@ class Usuario extends ConexionDB {
 		return $variables;
 	}
 
-	private function getVariablesClase($value = false){
-		$variables = get_class_vars(__CLASS__);
-		if ($value){
-			foreach ($variables as $key=>$value) {
-				$variables[$key] = "";
-			}
-		} else {
-			foreach ($variables as $key=>$value) {
-				$variables[$key] = $this->$key;
-			} 
-		}
-		return $variables;
-	}
-
 	public function registrarUsuario(){
 		$this->seleccionarColeccion('usuario');
 		$usuario = $this->getVariablesClase();
