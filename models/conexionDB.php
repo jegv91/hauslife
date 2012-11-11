@@ -1,31 +1,51 @@
 <?php
-/**
- * Clase ConexionDB
- * Usada para crear la conexion a MongoDB
- * @author Oz Garza
- */
-class ConexionDB{
-	
-	/**
-	 * Conecta a la base de datos mongo y envia un objeto con acceso a la base de datos hauslife 
-	 */
-	function conectar(){
-		// connectar a mongo
-		$m = new Mongo();
 
-		// seleccionar base de datos hauslife
-		$db = $m->hauslife;
-		return $db;
-	}
+class ConexionDB {
 	
-	/**
-	 * Regresa un objeto con la coleccion dada como parametro
-	 * @param $db, la base de datos a conectar
-	 * @param $collection la coleccion a utilizar
-	 */
-	function seleccionarColeccion ($db, $collection){
-		return $db->$collection;
+	private $collection;
+
+	private static $_dataBase;
+	private static $_dbHandle;
+
+
+	public function __construct() {
+		ConexionDB::conectar();
 	}
 
+	public static function conectar(){
+		if(!self::$_dbHandle) {
+			self::$_dbHandle = new Mongo();
+			self::$_dataBase = self::$_dbHandle->selectDB('hauslife');
+		}
+		return self::$_dataBase;
+	}
+	
+	protected function seleccionarColeccion ($collection){
+		$this->collection = new MongoCollection(self::conectar(), $collection);
+	}
+
+	protected function buscar($condicion = null){
+		if (is_null($condicion)) {
+			$result = $this->collection->find();
+		} else {
+			$resul = $this->collection->find($condicion);
+		}
+		return $result;
+	}
+
+	protected function guardar($datos){
+		$result = $this->collection->insert($datos);
+		return $result;
+	}
+
+	protected function borrar($datos){
+		$result = $this->collection->remove($datos);
+		return $result;
+	}
+
+	protected function actualizar($condicion, $datos){
+		$result = $this->collection->update($condicion, $datos);
+		return $result;
+	}
 }
 ?>
