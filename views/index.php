@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	<!-- @author JEGV
+		 @version 1.1
+		 @date 11 11 12-->
     <meta charset="utf-8">
     <title>Hauslife</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
