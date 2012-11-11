@@ -8,119 +8,85 @@ require_once 'conexionDB.php';
 /** 
 *  Modelo de residente 
 */ 
-class Residente
-{ 
-   private $nombre;
-   private $matricula;
-   private $numeroCuarto;
-   private $edificio;
-   private $estadoProcedencia;
-   private $telefonoEmergencia;
-   private $alergias;
-   private $enfermedades;
-   private $telefonoPadres;
-   private $comentarios;
-    
-   /**
-    *  Constructor
-    *  @return void
-    */
-   public function __construct()
-   {
-	   $this->nombre="";
-	   $this->matricula="";
-	   $this->numeroCuarto="";
-	   $this->edificio="";
-	   $this->estadoProcedencia="";
-	   $this->telefonoEmergencia="";
-	   $this->alergias="";
-	   $this->enfermedades="";
-	   $this->telefonoPadres="";
-	   $this->comentarios=""; 
-   }
-      
-   private function getVariablesClase(){
-   	$variables = get_class_vars(__CLASS__);
-   	foreach ($variables as $key=>$value) {
-   		$variables[$key] = $this->$key;
-   	}
-   	return $variables;
-   }
-   
-   /**
-    * Registra un residente en la base de datos
-    */
-   function registrarResidente(){
-		//conectar a mongoDB
-		$conexion= new ConexionDB();
-		$db = $conexion->conectar();
-		//seleccionar la coleccion residente
-		$collection = $conexion->seleccionarColeccion($db, "residente");
-		// agregar un registro
-		$residente=$this->getVariablesClase();
-		$collection->insert($residente);
-   }
-   
-   /*
-    * Getters dinamicos
-    */
-   public function __get($property) {
-   	if (property_exists($this, $property)) {
-   		return $this->$property;
-   	}
-   }
-   
-   /*
-    * Setters dinamicos
-   */
-   public function __set($property, $value) {
-   	if (property_exists($this, $property)) {
-   		$this->$property = $value;
-   	}
-   }
-   
-   /**
-    * Elimina un residente en la base de datos
-    */
-   function eliminarResidente($idResidente){
-	   	//conectar a mongoDB
-	   	$conexion= new ConexionDB();
-	   	$db = $conexion->conectar();
-	   	//seleccionar la coleccion residente
-	   	$collection = $conexion->seleccionarColeccion($db, "residente");
-	   	// eliminar un registro
-	    $collection->remove(array('_id' => new MongoId($idResidente)));
-   }
-   
-   /**
-    * Regresa todos los datos de los residentes registrados
-    */
-   function getInfoResidentes(){
-	   	//conectar a mongoDB
-	   	$conexion= new ConexionDB();
-	   	$db = $conexion->conectar();
-	   	//seleccionar la coleccion residente
-	   	$collection = $conexion->seleccionarColeccion($db, "residente");
-	   	//query para buscar al residente
-	   	$result = $collection->find();
-	   	return $result;
-   }
-   
-   /**
-    * Regresa todos los datos de un residente de acuerdo al id
-    * @param $id, el id del residente
-    */
-   function getInfoResidente($id){
-	   	//conectar a mongoDB
-	   	$conexion= new ConexionDB();
-	   	$db = $conexion->conectar();
-	   	//seleccionar la coleccion residente
-	    $collection = $conexion->seleccionarColeccion($db, "residente");
-		//query para buscar al residente
-	    $cursor = $collection->findOne(array('_id' => new MongoId($id)));
-	   	return $cursor;   	   	
-   }
-   
+class Residente extends ConexionDB{
+
+  private $nombre;
+  private $matricula;
+  private $numeroCuarto;
+  private $edificio;
+  private $estadoProcedencia;
+  private $telefonoEmergencia;
+  private $alergias;
+  private $enfermedades;
+  private $telefonoPadres;
+  private $comentarios;
+  
+  public function __construct() {
+    $this->getVariablesClase(true);
+  }
+
+  public function __get($property) {
+    if (property_exists($this, $property)) {
+      return $this->$property;
+    }
+  }
+
+  public function __set($property, $value) {
+    if (property_exists($this, $property)) {
+      $this->$property = $value;
+    }
+  }
+
+  private function getVariablesClase($value = false){
+    $variables = get_class_vars(__CLASS__);
+    if ($value){
+      foreach ($variables as $key=>$value) {
+        $variables[$key] = "";
+      }
+    } else {
+      foreach ($variables as $key=>$value) {
+        $variables[$key] = $this->$key;
+      } 
+    }
+    return $variables;
+  }
+
+
+  public function registrarResidente(){
+    //seleccionar la coleccion residente
+    $this->seleccionarColeccion('residente');
+    // agregar un registro
+    $residente = $this->getVariablesClase();
+    //$conexion->collection->insert($residente);
+    $this->guardar($residente);
+  }
+
+
+  public function eliminarResidente($idResidente){
+    $this->seleccionarColeccion('residente');
+      // eliminar un registro
+    $array = array('_id' => new MongoId($idResidente));
+      // $this->borrar($array, $collection);
+    $this->borrar($array);
+
+  }
+
+
+  public function getInfoResidentes(){
+      //conectar a mongoDB
+    $this->seleccionarColeccion('residente');
+    $result = $this->buscar();
+    return $result; 
+
+  }
+
+
+  public function getInfoResidente($id){
+    $this->seleccionarColeccion('residente');
+    $result = $this->buscar($id);
+    return $result; 
+  }
+
 }
-   ?>
-    
+?>
+
