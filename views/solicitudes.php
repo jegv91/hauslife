@@ -35,7 +35,7 @@
 				<dt>
 					<?php 
 						//Verificar si la variable FAC esta activa o no, es decir si el alumno ya tiene su FAC
-						$FAC = FALSE;
+						//$FAC = FALSE;
 						if($FAC){
 					?>
 					Tu FAC ya ha sido solicitada, si aun no la tienes acude al modulo de atencion
@@ -99,10 +99,7 @@
 					<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
 				</div>
 			</div>
-			<div id="Notice" class = "in">
-				<a id="demo"></a>
-				<a class="close" data-dismiss="alert" href="#Notice">&times;</a>
-			<div/>
+			<a id="demo"></a>
 		</div>
 		
 		<br/><br/>
