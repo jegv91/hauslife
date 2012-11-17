@@ -260,9 +260,9 @@
           <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
           <div class="nav-collapse collapse">
             
-			<form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Matr&iacute;cula">
-              <input class="span2" type="password" placeholder="Contrase&ntilde;a">
+			<form class="navbar-form pull-right" method="post" action="../Controllers/validaUsuario.php">
+              <input class="span2" type="text" id="user" name="user" placeholder="Matr&iacute;cula">
+              <input class="span2" type="password" id="password" name="password" placeholder="Contrase&ntilde;a">
               <button type="submit" class="btn">Entrar</button>
             </form>
           </div><!--/.nav-collapse -->

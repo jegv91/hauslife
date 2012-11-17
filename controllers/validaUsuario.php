@@ -9,47 +9,51 @@
 		return $tmp;
     }
     // Datos proporcionados por el usuario
-    $user = $_POST['user'];
-    $passwd = $_POST['password'];
+    $matricula = $_POST['user'];
+    $pass = $_POST['password'];
 	
     // Registro de los errores
     $error = "";
-    if ($user != "" && $passwd != "") {
-		/*Validar como esta el usuario*/
+	
+	//Inicio de las verificaciones
+    if ($matricula != "" && $pass != "") {
+		/*creamos un usuario temporal para realizar la busqueda*/
+		$userTemp = new Usuario();
+		$userTemp->matricula = strtoupper($matricula);
+		$userTemp->pass = $pass;
 		/*Patron para la matricula completa*/
 		$patron1 = '^[aAlL]\\d{8}$';
 		/*Patron para la matricula sin los a0s*/
 		$patron2 = '^[\\d]{6,7}$';
 		/*Verificamos el patron que uso para obtener el usuario*/
-		if(preg_match("/".$patron1."/", $user)){
+		if(preg_match("/".$patron1."/", $matricula)){
 			// Obtiene una instancia de usuario de acuerdo con la matricula o nomina
-			$row = usuario::usuario_por_matricula($user);
-		}elseif(preg_match("/".$patron2."/", $user)){
+			$reng = $userTemp->buscaUsuario();
+		}elseif(preg_match("/".$patron2."/", $matricula)){
+			$userTemp->matricula = "A00".$matricula;
 			// Obtiene una instancia de usuario de acuerdo con la matricula o nomina
-			$row = usuario::usuario_por_matricula($user);
+			$reng = $userTemp->buscaUsuario();	
 		}else{
 			$error .= "La matrícula no tiene el formato adecuado.";
-			$row = null;
-		}
+			$reng = null;
+		}		
 		// Si el usuario existe
-		if ($row != null) {
-			// Obtiene la semilla
-			$semilla = $row->get_codigo();
-			// Aplica el hash a la semilla y a la contrasenia proporcionada
-			$passwd = (string)(md5($semilla.$passwd));
-			// Comprueba si el resultado anterior es igual al hash en la base de datos
-			$t = $row->get_contrasena();
-			if (trim($t) == $passwd) {
-				$_SESSION['user_type'] = $row->get_tipo();
-				$_SESSION['user_id'] = $row->get_id();
+		if ($reng != null) {
+			$row = new Usuario();
+			$row->matricula = $reng['matricula'];
+			$row->pass = $reng['pass'];
+			$row->tipo = $reng['tipo'];
+			
+			if ($pass == $row->pass) {
+				$_SESSION['user_type'] = $row->tipo;
+				$_SESSION['user_id'] = $row->matricula;
 				/*Redireccionamos al usuario acuerdo a sus permisos*/
-				$tipo = $row->get_tipo();
-				switch($tipo){
+				switch($row->tipo){
 					/*El usuario es admin*/
-					case 0: header("location: ../Controllers/index_admin.php");
+					case 0: header("location: ../Controllers/indexAdmin.php");
 					break;
-					/*El usuario es evaluador del departamento de becas*/
-					case 1: header("location: ../Controllers/index_res.php");
+					/*El usuario es estudiante*/
+					case 1: header("location: ../Controllers/indexRes.php");
 					break;
 				}
 			} else {
