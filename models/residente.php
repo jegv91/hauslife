@@ -49,10 +49,16 @@ class Residente extends ConexionDB{
 		return $variables;
 	}
 
-	public function registrarResidente(){
+	public function registrarResidente($id = NULL){
 		$this->seleccionarColeccion('residente');
 		$residente = $this->getVariablesClase();
-		$this->guardar($residente);
+		if (is_null($id)) {
+			$this->guardar($residente);	
+		} else {
+			$id = $this->rellenarId($id);
+			$id = strtoupper($id);
+			$this->guardar($residente, $id);
+		}
 	}
 
 	public function getInfoResidentes(){

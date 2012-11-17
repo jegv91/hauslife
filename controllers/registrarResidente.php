@@ -39,7 +39,7 @@
 
 
 	//Llamada a funcion para registrar el residente
-	$res->registrarResidente();
+	$res->registrarResidente($res->matricula);
 
 	header("Location: ../views/listaResidentes.php");
 ?>

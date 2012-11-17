@@ -54,7 +54,7 @@ class Usuario extends ConexionDB {
 		$this->seleccionarColeccion('usuario');
 		$usuario = array('matricula' => $this->matricula);
 		$result = $this->buscar($usuario);
-		return $result;   	   	
+		return $result;	
 	}
 
 }
