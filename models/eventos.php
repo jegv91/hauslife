@@ -50,10 +50,15 @@ class Evento extends ConexionDB{
 		return $variables;
 	}
 
-	public function registrarEvento(){
+	public function registrarEvento($id = NULL){
 		$this->seleccionarColeccion('evento');
 		$evento = $this->getVariablesClase();
-		$this->guardar($evento);
+		if (is_null($id)) {
+			$this->guardar($evento);	
+		} else {
+			$this->guardar($evento, $id);
+		}
+		
 	}
 
 	public function getInfoEventos(){
