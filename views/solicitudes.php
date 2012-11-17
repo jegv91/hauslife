@@ -7,32 +7,19 @@
 		<script type="text/javascript" src="../JavaScripts/jquery-1.7.2.js"></script>
 		<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
 		<script type="text/javascript">	
-			function confirmFAC()
-			{
-				var x;
-				var r=confirm("Se enviara un mail para hacer la solicitud de tu FAC");
-				if (r==true)
-					{
-						x="Tu Solicitud ha sido enviada";
-					}
-				else
-					{
-						x="Has cancelado el envio de la solicitud";
-					}
-				document.getElementById("demo").innerHTML=x;
-				$(".alert").alert("soy un alert");
+			function FACconf(){
+				//document.getElementById("demo").innerHTML="Tu Solicitud ha sido enviada";
+				location.href = "../controllers/activaFAC.php";
 			}
 			
-			function datosComprobante(){
-				var x;
-				var name=prompt("Indica a quien ira dirigido el comprobante:","");
-				if (name!=null && name != "")
-				{
-					x="Tu comprobante para " + name + " ha sido solicitado";
-				} else {
-					x="";
+			function Comprobanteconf(){
+				var aQuien = document.getElementById("para").value;
+				if(aQuien != ""){
+					document.getElementById("demo").innerHTML=aQuien;
+					document.getElementById("para").value="";
+				}else {
+					document.getElementById("demo").innerHTML="ERROR";
 				}
-				document.getElementById("demo").innerHTML=x;
 			}
 		</script>
 
@@ -55,7 +42,9 @@
 					<?php
 						} else {
 					?>
-					<input type="submit" class="btn btn-primary" value="Solicitar FAC" id="FAC" onclick="confirmFAC()">
+					<!-- <input type="submit" class="btn btn-primary" value="Solicitar FAC" id="FAC" onclick="confirmFAC()"> -->
+					<!-- Button to trigger modal -->
+					<a href="#FACModal" role="button" class="btn btn-primary" data-toggle="modal">Solicitar FAC</a>
 					<?php
 						}
 					?>
@@ -65,33 +54,57 @@
 				</dd> 
 				<br/><br/>
 				<dt>
-					<input type="submit" class="btn btn-primary" value="Solicitar Comprobante de Domicilio" id="comprobante" onclick="datosComprobante()">
+					<!-- <input type="submit" class="btn btn-primary" value="Solicitar Comprobante de Domicilio" id="comprobante" onclick="datosComprobante()"> -->
+					<!-- Button to trigger modal -->
+					<a href="#ComprobanteModal" role="button" class="btn btn-primary" data-toggle="modal">Solicitar Comprobante de Domicilio</a>
 				</dt>
 				<dd>
 					Pide tu comprobante de domicilio para cualquier tramite que necesites, como un plan para tu ceular
 				</dd>
 			</dl>
-			<br/><br/>
-			<p id="demo"></p>
 			
-			<!-- Button to trigger modal -->
-			<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Launch demo modal</a>
-
 			<!-- Modal -->
-			<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div id="FACModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h3 id="myModalLabel">Modal header</h3>
+					<h3 id="myModalLabel">Confirmacion de FAC</h3>
 				</div>
 				<div class="modal-body">
-					<p>One fine body…</p>
+					<p>Se enviar&aacute; un mail para hacer la solicitud de tu FAC</p>
 				</div>
 				<div class="modal-footer">
-					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-					<button class="btn btn-primary">Save changes</button>
+					<button class="btn btn-primary" onclick="FACconf()" data-dismiss="modal">Solicitar FAC</button>
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
 				</div>
 			</div>
+			
+			<!-- Modal -->
+			<div id="ComprobanteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel">Solicitud de Comprobante de Domicilio</h3>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" action="../controllers/solicitudes.php" method="POST">
+						<p>Se enviara un mail para solicitar tu comprobante de domicilio</p>
+						<br/>
+						<p> Por favor llena la siguiente informacion</p>
+						<br/>
+						<p>Persona o Institucion a quien va dirigido:</p>
+						<input name="para" id="para" type="text" placeholder="Para quien"/>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-primary" onclick="Comprobanteconf()" data-dismiss="modal">Solicitar Comprobante</button>
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+				</div>
+			</div>
+			<div id="Notice" class = "in">
+				<a id="demo"></a>
+				<a class="close" data-dismiss="alert" href="#Notice">&times;</a>
+			<div/>
 		</div>
+		
 		<br/><br/>
 		
 		<!-- <?php //include_once("../views/footer.html");?> -->
