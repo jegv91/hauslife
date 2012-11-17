@@ -33,8 +33,13 @@ class ConexionDB {
 		return $result;
 	}
 
-	protected function guardar($datos){
-		$result = $this->collection->insert($datos);
+	protected function guardar($datos, $id = null){
+		if (is_null($id)) {
+			$result = $this->collection->insert($datos);	
+		} else {
+			$datos['_id'] =  new MongoId($id);
+			$result = $this->collection->insert($datos);
+		}
 		return $result;
 	}
 
@@ -47,5 +52,36 @@ class ConexionDB {
 		$result = $this->collection->update($condicion, $datos);
 		return $result;
 	}
+
+	protected function cleanId($id){
+		$cleanId = str_replace("*", "", "$id");
+		return $cleanId;
+	}
+
+	protected function rellenarId($id){
+		$repeticion = "";
+		$length = 24 - strlen($id);
+		if ($length > 0) {
+			$repeticion = str_repeat('*',$length); 
+		}
+		return $id.$repeticion;
+	}
+
+	// public function strToHex($string)
+	// {
+	// 	$hex='';
+	// 	for ($i=0; $i < strlen($string) AND $i < 25; $i++) {
+	// 		$hex .= dechex(ord($string[$i]));
+	// 	}
+	// 	return $hex;
+	// }
+
+	// public function hexToStr($hex) {
+	// 	$string='';
+	// 	for ($i=0; $i < strlen($hex)-1; $i+=2) {
+	// 		$string .= chr(hexdec($hex[$i].$hex[$i+1]));
+	// 	}
+	// 	return $string;
+	// }
 }
 ?>
