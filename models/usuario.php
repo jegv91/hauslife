@@ -50,10 +50,9 @@ class Usuario extends ConexionDB {
 		$this->guardar($usuario);
 	}
 
-	
-	public function buscaUsuario($matricula){
-		$this->seleccionarColeccion('noticia');
-		$usuario = array('matricula' => $matricula);
+	public function buscaUsuario(){
+		$this->seleccionarColeccion('usuario');
+		$usuario = array('matricula' => $this->matricula);
 		$result = $this->buscar($usuario);
 		return $result;	
 	}
