@@ -5,8 +5,8 @@ $res=new Residente();
 $data=$res->getInfoResidente($id);
 $pageTitle="Informaci&oacute;n del residente";
 include_once("../views/header_index.php");?>
-	<br/><br/>
-		<div class="container">
+	<div class="container-fluid">
+      <div class="row-fluid">
 		<h1>Informaci&oacute;n del residente</h1>		
 			<table class="table table-bordered">
 			<tr><th>Nombre</th><td><?php echo $data["nombre"]?></td></tr>
@@ -22,7 +22,7 @@ include_once("../views/header_index.php");?>
 			</table>
 			<a class='btn btn-primary' href='listaResidentes.php'><i class='icon-arrow-left icon-white'></i> Regresar</a>
 		</div>
-		<br /> <br />
-		<?php //include_once("../views/footer.html");?>
+		</div>
+		<?php include_once("../views/footer.html");?>
 </body>
 </html>

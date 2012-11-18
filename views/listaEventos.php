@@ -4,11 +4,11 @@ require_once '../models/evento.php';
 $evento=new Evento();
 //Llamar a funcion para obtener el array asociativo con la informacion de cada residente
 $lista=$evento->getInfoEventos();
-$pageTitle="Lista de reventos";
+$pageTitle="Eventos";
 include_once("../views/header_index.php");?>
-	<br/><br/>
-		<div class="container">
-		<h1>Lista de eventos</h1>
+	<div class="container-fluid">
+      <div class="row-fluid">
+		<h1>Eventos</h1>
 			<table class="table table-bordered">
 			<tr><th colspan=3>Titulo</th></tr>
 			<?php			
@@ -21,7 +21,7 @@ include_once("../views/header_index.php");?>
 			</table>
 			<a class='btn' href='registraEvento.php'><i class='icon-glass'></i>Registrar evento</a>
 		</div>
-		<br /> <br />
+		</div>
 		<?php include_once("../views/footer.html");?>
 </body>
 </html>

@@ -3,9 +3,8 @@ $pageTitle="Registrar residente";
 $evento=true;
 include_once("../views/header_index.php");
 ?>
-	<br />
-	<br />
-	<div class="container">
+<div class="container-fluid">
+      <div class="row-fluid">
 		<h1>Registrar Evento</h1>
 		<form class="form-horizontal" action="../controllers/registrarEvento.php" method="POST">
 			<div style="display:table-cell;">
@@ -70,9 +69,8 @@ include_once("../views/header_index.php");
 			</div>			
 		</form>
 	</div>
-	<br />
-	<br />
-	<?php //include_once("../views/footer.html");?>
+	</div>
+	<?php include_once("../views/footer.html");?>
 	
 	
 	<script type="text/javascript">    

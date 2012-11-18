@@ -26,8 +26,6 @@ include_once("../views/header_index.php");
 			</div>
 		</form>
 	</div>
-	<br />
-	<br />
 	</div>
 	<?php include_once("../views/footer.html");?>
 </body>

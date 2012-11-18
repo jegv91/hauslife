@@ -4,10 +4,11 @@ require_once '../models/noticia.php';
 $not=new Noticia();
 //Llamar a funcion para obtener el array asociativo con la informacion de cada noticia
 $lista=$not->getInfoNoticias();
+$pageTitle="Noticias publicadas";
 include_once("../views/header_index.php");?>
-	<br/><br/>
-		<div class="container">
-		<h1>Listado de noticias publicadas</h1>
+	<div class="container-fluid">
+      <div class="row-fluid">
+		<h1>Noticias publicadas</h1>
 			<table class="table table-bordered">
 			<tr><th colspan=3>Noticia</th></tr>
 			<?php			
@@ -20,7 +21,7 @@ include_once("../views/header_index.php");?>
 			</table>
 			<a class='btn' href='registraNoticia.php'><i class='icon-envelope'></i>Registrar noticia</a>
 		</div>
-		<br /> <br />
+		</div>
 		<?php include_once("../views/footer.html");?>
 </body>
 </html>

@@ -1,33 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Solicitudes</title>
-		<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-		<!-- <link href="../Css/style.css" rel="stylesheet" type="text/css" />-->
-		<script type="text/javascript" src="../JavaScripts/jquery-1.7.2.js"></script>
-		<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
-		<script type="text/javascript">	
-			function FACconf(){
-				//document.getElementById("demo").innerHTML="Tu Solicitud ha sido enviada";
-				location.href = "../controllers/activaFAC.php";
-			}
-			
-			function Comprobanteconf(){
-				var aQuien = document.getElementById("para").value;
-				if(aQuien != ""){
-					document.forms["Comprobante"].submit();
-					document.getElementById("para").value="";
-				}else {
-					alert("No has puesto el destinatario del Comprobante");
-				}
-				
-			}
-		</script>
-
-	</head>
-
-	<body>
-		<!-- <?php //include_once("../views/header_index.php");?> -->
+<?php
+$solicitudes = true;
+$pageTitle="Noticias publicadas";
+include_once("../views/header_index.php");?> 
 		<br /><br />
 		<!--Inicio-->
 		<!--<div id="content"> -->
@@ -67,7 +41,7 @@
 			<!-- Modal -->
 			<div id="FACModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">ï¿½</button>
 					<h3 id="myModalLabel">Confirmacion de FAC</h3>
 				</div>
 				<div class="modal-body">
@@ -82,7 +56,7 @@
 			<!-- Modal -->
 			<div id="ComprobanteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">ï¿½</button>
 					<h3 id="myModalLabel">Solicitud de Comprobante de Domicilio</h3>
 				</div>
 				<div class="modal-body">
@@ -101,10 +75,7 @@
 				</div>
 			</div>
 			<a id="demo"></a>
-		</div>
-		
-		<br/><br/>
-		
-		<!-- <?php //include_once("../views/footer.html");?> -->
+		</div>			
+		<?php include_once("../views/footer.html");?>
 	</body>
 </html>

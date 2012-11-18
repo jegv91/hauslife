@@ -1,6 +1,6 @@
 <?php
 	require_once '../models/residente.php';
-
+	require_once '../models/usuario.php';
 		//Datos de la forma registrarNoticia
 	if(isset($_POST["nombre"]))
 		$nombre=$_POST["nombre"];
@@ -22,10 +22,13 @@
 		$telefonoPadres=$_POST["telefonoPadres"];
 	if(isset($_POST["comentarios"]))
 		$comentarios=$_POST["comentarios"];
+	if(isset($_POST["password"]))
+		$password=$_POST["password"];
 
 		//Objeto residente
 	$res = new Residente();
-
+	$usr = new Usuario();
+	
 	$res->nombre = $nombre;
 	$res->matricula = $matricula;
 	$res->numeroCuarto = $numeroCuarto;
@@ -37,9 +40,13 @@
 	$res->telefonoPadres = $telefonoPadres;
 	$res->comentarios = $comentarios;
 
-
+	$usr->matricula = $matricula;
+	$usr->tipo=1;
+	$usr->pass=$password;
+	
 	//Llamada a funcion para registrar el residente
 	$res->registrarResidente($res->matricula);
-
+	$usr->registrarUsuario();
+	
 	header("Location: ../views/listaResidentes.php");
 ?>

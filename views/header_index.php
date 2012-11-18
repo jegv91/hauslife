@@ -34,7 +34,25 @@ if($tipo == 1 ){
 	<script type="text/javascript" src="../JavaScripts/bootstrap-datepicker.js"></script>
 	<script type="text/javascript" src="../bootstrap/js/bootstrap-timepicker.js"></script>
 	<script type="text/javascript" src="../bootstrap/js/jquery.bootstrap-money-field.js"></script>
-	<?php }?>
+	<?php } else if(isset($solicitudes)){?>
+	<script type="text/javascript">	
+			function FACconf(){
+				//document.getElementById("demo").innerHTML="Tu Solicitud ha sido enviada";
+				location.href = "../controllers/activaFAC.php";
+			}
+			
+			function Comprobanteconf(){
+				var aQuien = document.getElementById("para").value;
+				if(aQuien != ""){
+					document.forms["Comprobante"].submit();
+					document.getElementById("para").value="";
+				}else {
+					alert("No has puesto el destinatario del Comprobante");
+				}
+				
+			}
+		</script>
+		<?php }?>
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -66,7 +84,7 @@ if($tipo == 1 ){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <?php if($tipo == 1 ){?>
+          <?php 	if($tipo == 1 ){?>
           <a class="brand" href="indexRes.php">Hauslife</a>
           <?php } else {?>
           <a class="brand" href="indexAdmin.php">Hauslife</a>
@@ -112,7 +130,7 @@ if($tipo == 1 ){
 						<?php } else {?>							
 								<li><a href="../views/listaEventos.php">Eventos</a></li>								
 								<li><a href="../views/listaNoticias.php">Noticias</a></li>								
-								<li><a href="../views/solicitudes.php">Solicitudes</a></li>
+								<li><a href="../controllers/solicitudes.php">Solicitudes</a></li>
 						<?php }?>
 					</ul>
           </div><!--/.nav-collapse -->
