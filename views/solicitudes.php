@@ -15,11 +15,12 @@
 			function Comprobanteconf(){
 				var aQuien = document.getElementById("para").value;
 				if(aQuien != ""){
-					document.getElementById("demo").innerHTML=aQuien;
+					document.forms["Comprobante"].submit();
 					document.getElementById("para").value="";
 				}else {
-					document.getElementById("demo").innerHTML="ERROR";
+					alert("No has puesto el destinatario del Comprobante");
 				}
+				
 			}
 		</script>
 
@@ -85,7 +86,7 @@
 					<h3 id="myModalLabel">Solicitud de Comprobante de Domicilio</h3>
 				</div>
 				<div class="modal-body">
-					<form class="form-horizontal" action="../controllers/solicitudes.php" method="POST">
+					<form id="Comprobante" class="form-horizontal" action="../controllers/domicilio.php" method="POST">
 						<p>Se enviara un mail para solicitar tu comprobante de domicilio</p>
 						<br/>
 						<p> Por favor llena la siguiente informacion</p>
