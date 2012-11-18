@@ -18,6 +18,7 @@ class Evento extends ConexionDB{
 	private $fotografia;
 	private $titulo;
 	private $presupuesto;
+	private $asistentes;
 
 	public function __construct() {
 		$this->getVariablesClase(true);
@@ -83,6 +84,23 @@ class Evento extends ConexionDB{
 		$this->seleccionarColeccion('evento');
 		$array = array('_id' => new MongoId($idEvento));
 		$this->borrar($array);
+	}
+
+	public function confirmarEvento($idEvento, $idResidente){
+		$data = $this->getInfoEvento($idEvento);
+
+		if (is_null($data))
+			$data = array();
+
+		$data = $data['asistentes'];
+		array_push($data, $idResidente);
+
+		$data = array_values($data);
+
+		$newdata = array('$set' => array("asistentes" => $data));
+		$buscar = array('_id' => new MongoId ($idEvento));
+
+		$this->actualizar($buscar, $newdata);
 	}
 }
 ?>
