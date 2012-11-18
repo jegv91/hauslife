@@ -47,6 +47,7 @@
 	$usr->matricula = $matricula;
 	$usr->tipo=1;
 	$usr->pass=$password;
+	$usr->idEdificio=$edificio;
 	
 	//Llamada a funcion para registrar el residente
 	$res->registrarResidente($res->matricula);

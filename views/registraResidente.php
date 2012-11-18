@@ -28,9 +28,9 @@ include_once("../views/header_index.php");?>
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="password">Confirmar Contrase&ntilde;a</label>
+					<label class="control-label" for="passwordConfirm">Confirmar Contrase&ntilde;a</label>
 					<div class="controls">
-						<input type="password" id="password" name="password">
+						<input type="password" id="passwordConfirm" name="passwordConfirm">
 					</div>
 				</div>
 				<div class="control-group">
@@ -43,16 +43,16 @@ include_once("../views/header_index.php");?>
 				<div class="control-group">
 					<label class="control-label">Edificio</label>
 					<div class="controls">
-						<select>
-							<option id="1" name="edificio" value="1">1</option>
-							<option id="2" name="edificio" value="2">2</option>
-							<option id="3" name="edificio" value="3">3</option>
-							<option id="4" name="edificio" value="4">4</option>
-							<option id="5" name="edificio" value="5">5</option>
-							<option id="6" name="edificio" value="6">6</option>
-							<option id="7" name="edificio" value="7">7</option>
-							<option id="8" name="edificio" value="8">8</option>
-							<option id="9" name="edificio" value="9">9</option>
+						<select name="edificio">
+							<option id="1" value="01">1</option>
+							<option id="2" value="02">2</option>
+							<option id="3" value="03">3</option>
+							<option id="4" value="04">4</option>
+							<option id="5" value="05">5</option>
+							<option id="6" value="06">6</option>
+							<option id="7" value="07">7</option>
+							<option id="8" value="08">8</option>
+							<option id="9" value="09">9</option>
 						</select>
 					</div>
 				</div>
