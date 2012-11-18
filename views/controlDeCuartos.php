@@ -18,325 +18,339 @@
 		<!--Inicio-->
 		<!--<div id="content"> -->
 		<div class = "form-actions">
-			<form id="Control" class="form-horizontal" action="../controllers/controlDeCuarto.php" method="POST">
+
+			<form id="Control" class="form-horizontal" action="../controllers/registrarControlDeCuartos.php" method="POST">
 			<h3>Control de Cuarto</h3>
-			<table>
-			<tr>
-				<td width = 120 valign = "bottom">
-					Colchon
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="colchon" id="colchon1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="colchon" id="colchon2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="colchon" id="colchon3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Base de cama
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="base" id="base1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="base" id="base2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="base" id="base3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Cajones
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="cajones" id="cajones1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="cajones" id="cajones2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="cajones" id="cajones3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Escritorio
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="escritorio" id="escritorio1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="escritorio" id="escritorio2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="escritorio" id="escritorio3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Repisa
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="repisa" id="repisa1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="repisa" id="repisa2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="repisa" id="repisa3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Lavabo
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="labavo" id="labavo1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="labavo" id="labavo2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="labavo" id="labavo3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Closet
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="closet" id="closet1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="closet" id="closet2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="closet" id="closet3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Ventanas
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="ventanas" id="ventanas1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="ventanas" id="ventanas2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="ventanas" id="ventanas3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Mosquiteros
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="mosquiteros" id="mosquiteros1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="mosquiteros" id="mosquiteros2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="mosquiteros" id="mosquiteros3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Abanico
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="abanico" id="abanico1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="abanico" id="abanico2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="abanico" id="abanico3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Corcho
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="corcho" id="corcho1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="corcho" id="corcho2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="corcho" id="corcho3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Puerta Exterior
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="puertaExt" id="puertaExt1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="puertaExt" id="puertaExt2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="puertaExt" id="puertaExt3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			
-			<tr>
-				<td width = 120 valign = "bottom">
-					Puerta Closet
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="puertaCloset" id="puertaCloset1" value="1" checked>
-						Bueno
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="puertaCloset" id="puertaCloset2" value="2">
-						Regular
-					</label>
-				</td>
-				<td width = 120>
-					<label class="radio inline">
-						<input type="radio" name="puertaCloset" id="puertaCloset3" value="3">
-						Malo
-					</label>
-				</td>
-			</tr>
-			</table>
-			<br/>
-			<submit class="btn btn-primary">Enviar</submit>
-			
+			<?php 
+				//Verificar si ya se lleno el control de cuartos
+				if(!$control){
+			?>
+				<table>
+				<tr>
+					<td width = 120 valign = "bottom">
+						Colchon
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="colchon" id="colchon1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="colchon" id="colchon2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="colchon" id="colchon3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Base de cama
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="base" id="base1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="base" id="base2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="base" id="base3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Cajones
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="cajones" id="cajones1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="cajones" id="cajones2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="cajones" id="cajones3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Escritorio
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="escritorio" id="escritorio1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="escritorio" id="escritorio2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="escritorio" id="escritorio3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Repisa
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="repisa" id="repisa1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="repisa" id="repisa2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="repisa" id="repisa3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Lavabo
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="labavo" id="labavo1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="labavo" id="labavo2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="labavo" id="labavo3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Closet
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="closet" id="closet1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="closet" id="closet2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="closet" id="closet3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Ventanas
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="ventanas" id="ventanas1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="ventanas" id="ventanas2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="ventanas" id="ventanas3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Mosquiteros
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="mosquiteros" id="mosquiteros1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="mosquiteros" id="mosquiteros2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="mosquiteros" id="mosquiteros3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Abanico
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="abanico" id="abanico1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="abanico" id="abanico2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="abanico" id="abanico3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Corcho
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="corcho" id="corcho1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="corcho" id="corcho2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="corcho" id="corcho3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Puerta Exterior
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="puertaExt" id="puertaExt1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="puertaExt" id="puertaExt2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="puertaExt" id="puertaExt3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				
+				<tr>
+					<td width = 120 valign = "bottom">
+						Puerta Closet
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="puertaCloset" id="puertaCloset1" value="1" checked>
+							Bueno
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="puertaCloset" id="puertaCloset2" value="2">
+							Regular
+						</label>
+					</td>
+					<td width = 120>
+						<label class="radio inline">
+							<input type="radio" name="puertaCloset" id="puertaCloset3" value="3">
+							Malo
+						</label>
+					</td>
+				</tr>
+				</table>
+				<br/>
+				<button type="submit" class="btn btn-primary">Enviar</submit>
+			<?php
+			} else {
+			?>
+				<!-- Pagina de Ya se lleno -->
+				<p>Ya has llenado el control de cuartos</p>
+			<?php
+			}
+			?>
 			</form>
+		
+
 		</div>
 
 		<!-- <?php //include_once("../views/footer.html");?> -->
