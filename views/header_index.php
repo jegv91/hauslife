@@ -107,9 +107,9 @@ body {
 					class="icon-bar"></span> <span class="icon-bar"></span>
 				</a>
 				<?php 	if($tipo == 1 ){?>
-				<a class="brand" href="indexRes.php">Hauslife</a>
+				<a class="brand" href="../views/indexRes.php">Hauslife</a>
 				<?php } else if($tipo == 0 ){?>
-				<a class="brand" href="indexAdmin.php">Hauslife</a>
+				<a class="brand" href="../views/indexAdmin.php">Hauslife</a>
 				<?php } else {?>
 				<a class="brand" href="../views/index.php">Hauslife</a>
 				<?php }?>
