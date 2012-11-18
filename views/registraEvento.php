@@ -67,14 +67,20 @@
 			</div>
 			</div>
 			<div style="display:table-cell;">
-				<input type='file' id="file" name="file" onchange="readURL(this);" /> <br/>
-				<img style="padding-left: 55px;" id="blah" src="#" alt="your image" />
+				&nbsp;<input id="lefile" type="file" style="display:none" onchange="readURL(this);">
+				<div class="input-append">
+				   <input id="photo" class="input-large" type="text">
+				   <a class="btn" onclick="$('input[id=lefile]').click();">Subir</a> 
+				</div>
+				<br/><br/>
+				<img style="padding-left: 54px;" id="blah" src="../img/up.png" alt="your image" />
 			</div>
 			
 			<div class="control-group">
+				<br/>
 				<label class="control-label" for="descripcion">Descripci&oacute;n</label>
 				<div class="controls">
-					<textarea id="descripcion" name="descripcion" rows="6" cols="120" class="span7"
+					<textarea id="descripcion" name="descripcion" rows="6" cols="120" class="span6"
 					placeholder="Descripci&oacute;n del comentario"></textarea>
 				</div>
 			</div>
@@ -89,6 +95,11 @@
 	<br />
 	<?php //include_once("../views/footer.html");?>
 	
+	<script type="text/javascript">
+		$('input[id=lefile]').change(function() {
+		   $('#photo').val($(this).val());
+		}); 
+	</script>
 	
 	<script type="text/javascript">    
 	var options = {
