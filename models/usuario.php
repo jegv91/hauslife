@@ -13,6 +13,7 @@ class Usuario extends ConexionDB {
 	private $matricula;
 	private $pass;
 	private $tipo;
+	private $idEdificio;
 
 	public function __construct() {
 		$this->getVariablesClase(true);

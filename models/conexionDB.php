@@ -38,6 +38,11 @@ class ConexionDB {
 		return $result;
 	}
 
+	protected function buscarFiltrado( $filtro = null, $valor = null){		
+		$result = $this->collection->find(array($filtro=> $valor ));
+		return $result;
+	}
+	
 	protected function guardar($datos, $id = null){
 		if (is_null($id)) {
 			$result = $this->collection->insert($datos);	

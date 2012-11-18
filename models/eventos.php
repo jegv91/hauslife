@@ -58,8 +58,7 @@ class Evento extends ConexionDB{
 			$id = $this->rellenarId($id);
 			$id = strtoupper($id);
 			$this->guardar($evento, $id);
-		}
-		
+		}		
 	}
 
 	public function getInfoEventos(){
@@ -68,7 +67,11 @@ class Evento extends ConexionDB{
 		return $result;
 	}
 
-
+	public function getInfoEventosPorEdificio($idEdificio){
+		$this->seleccionarColeccion('evento');
+		$result = $this->buscarFiltrado("idEdificio",$idEdificio);
+		return $result;
+	}
 	public function getInfoEvento($idEvento){
 		$this->seleccionarColeccion('evento');
 		$evento = array('_id' => new MongoId($idEvento));

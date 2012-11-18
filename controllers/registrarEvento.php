@@ -7,12 +7,11 @@ if(!isset($_SESSION)){
 }
 
 if (isset($_SESSION['user_type'])) {
-	
 	//Datos de la forma Registrar Evento
 	if(isset($_SESSION['user_id']))
 		$idPrefecto=$_SESSION["user_id"];
-	if(isset($_POST["idEdificio"]))
-		$idEdificio=$_POST["idEdificio"];
+	if(isset($_SESSION["user_idEdificio"]))
+		$idEdificio=$_SESSION["user_idEdificio"];
 	if(isset($_POST["fechaInicio1"]))
 		$fechaInicio=$_POST["fechaInicio1"];
 	if(isset($_POST["fechaInicio2"]))
@@ -41,7 +40,7 @@ if (isset($_SESSION['user_type'])) {
 
 	//Atributos del evento
 		$evento->idPrefecto = $idPrefecto;
-		$evento->idEdificio = $idPrefecto;
+		$evento->idEdificio = $idEdificio;
 		$evento->fechaInicio = $fechaInicio;
 		$evento->fechaTermino = $fechaTermino;
 		$evento->descripcionFotografia = $descripcionFotografia;

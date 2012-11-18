@@ -43,10 +43,12 @@
 			$row->matricula = $reng['matricula'];
 			$row->pass = $reng['pass'];
 			$row->tipo = $reng['tipo'];
+			$row->idEdificio = $reng['idEdificio'];
 			
 			if ($pass == $row->pass) {
 				$_SESSION['user_type'] = $row->tipo;
 				$_SESSION['user_id'] = $row->matricula;
+				$_SESSION['user_idEdificio'] = $row->idEdificio;
 				/*Redireccionamos al usuario acuerdo a sus permisos*/
 				switch($row->tipo){
 					/*El usuario es admin*/
