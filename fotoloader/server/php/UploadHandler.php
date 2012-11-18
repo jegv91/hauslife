@@ -94,15 +94,15 @@ class UploadHandler
                 ),
                 */
                 // Uncomment the following to create medium sized images:
-                /*
+                
                 'medium' => array(
-                    'max_width' => 800,
-                    'max_height' => 600,
-                    'jpeg_quality' => 80
+                    'max_width' => 300,
+                    'max_height' => 300,
+                    'jpeg_quality' => 50
                 ),
-                */
+                
                 'thumbnail' => array(
-                    'max_width' => 80,
+                    'max_width' => 20,
                     'max_height' => 80
                 )
             )
@@ -290,7 +290,7 @@ class UploadHandler
                 $src_img = @imagecreatefromjpeg($file_path);
                 $write_image = 'imagejpeg';
                 $image_quality = isset($options['jpeg_quality']) ?
-                    $options['jpeg_quality'] : 75;
+                    $options['jpeg_quality'] : 50;
                 break;
             case 'gif':
                 @imagecolortransparent($new_img, @imagecolorallocate($new_img, 0, 0, 0));
