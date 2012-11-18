@@ -1,7 +1,7 @@
 <?php
 
 class ConexionDB {
-	
+
 	private $collection;
 
 	private static $_dataBase;
@@ -19,7 +19,7 @@ class ConexionDB {
 		}
 		return self::$_dataBase;
 	}
-	
+
 	protected function seleccionarColeccion ($collection){
 		$this->collection = new MongoCollection(self::conectar(), $collection);
 	}
@@ -32,20 +32,31 @@ class ConexionDB {
 		}
 		return $result;
 	}
-	
+
 	protected function buscarOrdenado( $orden = null){
-		$result = $this->collection->find()->sort(array($orden=>-1));		
+		$result = $this->collection->find()->sort(array($orden=>-1));
 		return $result;
 	}
 
-	protected function buscarFiltrado( $filtro = null, $valor = null){		
+	protected function buscarFiltrado( $filtro = null, $valor = null){
 		$result = $this->collection->find(array($filtro=> $valor ));
 		return $result;
 	}
-	
+
+	protected function buscarAntesDeFecha( $fechaTermino = null, $valor = null, $edificio = null){
+		$result = $this->collection->find(array($fechaTermino=>array("\$lt"=> $valor),"idEdificio"=> $edificio));
+		return $result;
+	}
+
+	protected function buscarDespuesDeFecha( $fechaInicio = null, $valor = null, $edificio = null){
+		$result = $this->collection->find(array($fechaInicio=>array("\$gte"=> $valor),"idEdificio"=> $edificio));
+		return $result;
+	}
+
+
 	protected function guardar($datos, $id = null){
 		if (is_null($id)) {
-			$result = $this->collection->insert($datos);	
+			$result = $this->collection->insert($datos);
 		} else {
 			$datos['_id'] =  new MongoId($id);
 			$result = $this->collection->insert($datos);
@@ -67,7 +78,7 @@ class ConexionDB {
 		$repeticion = "";
 		$length = 24 - strlen($id);
 		if ($length > 0) {
-			$repeticion = str_repeat('*',$length); 
+			$repeticion = str_repeat('*',$length);
 		}
 		return $id.$repeticion;
 	}

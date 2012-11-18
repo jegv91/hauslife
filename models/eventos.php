@@ -1,14 +1,14 @@
 <?php 
-/** 
-*  Clase Evento
-*  @author Hector Jesus De La Garza Ponce 
-*  @version 1.0 
-*/ 
+/**
+ *  Clase Evento
+ *  @author Hector Jesus De La Garza Ponce
+ *  @version 1.0
+ */
 require_once 'conexionDB.php';
-/** 
-*  Modelo de residente 
-*/ 
-class Evento extends ConexionDB{ 
+/**
+ *  Modelo de residente
+ */
+class Evento extends ConexionDB{
 
 	private $idPrefecto;
 	private $idEdificio;
@@ -45,7 +45,7 @@ class Evento extends ConexionDB{
 		} else {
 			foreach ($variables as $key=>$value) {
 				$variables[$key] = $this->$key;
-			} 
+			}
 		}
 		return $variables;
 	}
@@ -54,12 +54,12 @@ class Evento extends ConexionDB{
 		$this->seleccionarColeccion('evento');
 		$evento = $this->getVariablesClase();
 		if (is_null($id)) {
-			$this->guardar($evento);	
+			$this->guardar($evento);
 		} else {
 			$id = $this->rellenarId($id);
 			$id = strtoupper($id);
 			$this->guardar($evento, $id);
-		}		
+		}
 	}
 
 	public function getInfoEventos(){
@@ -68,16 +68,23 @@ class Evento extends ConexionDB{
 		return $result;
 	}
 
-	public function getInfoEventosPorEdificio($idEdificio){
-		$this->seleccionarColeccion('evento');
-		$result = $this->buscarFiltrado("idEdificio",$idEdificio);
-		return $result;
-	}
 	public function getInfoEvento($idEvento){
 		$this->seleccionarColeccion('evento');
 		$evento = array('_id' => new MongoId($idEvento));
 		$result = $this->buscar($evento);
-		return $result;     
+		return $result;
+	}
+
+	public function getInfoEventosTerminados($fecha, $edificio){
+		$this->seleccionarColeccion('evento');
+		$result = $this->buscarAntesDeFecha("fechaTermino",$fecha, $edificio);
+		return $result;
+	}
+
+	public function getInfoEventosProximos($fecha, $edificio){
+		$this->seleccionarColeccion('evento');
+		$result = $this->buscarDespuesDeFecha("fechaInicio",$fecha, $edificio);
+		return $result;
 	}
 
 	public function eliminarEvento($idEvento){
