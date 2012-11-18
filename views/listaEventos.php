@@ -24,6 +24,9 @@ $listaProximos=$evento->getInfoEventosProximos(date("Y-m-d"),$_SESSION['user_idE
 					echo "<td><a class='btn btn-primary' href='verInformacionEvento.php?id=".$obj["_id"]."'><i class='icon-glass icon-white'></i> Ver Informaci&oacute;n</a></td>";
 					if($tipo==0){
 						echo "<td><a class='btn btn-danger' href='../controllers/eliminarEvento.php?id=".$obj["_id"]."'><i class='icon-trash icon-white'></i> Confirmar evento</a></td></tr>";
+					} elseif ($tipo == 1) {
+						echo "<td><a class='btn btn-success' href='../controllers/confirmarEvento.php?id=".$obj["_id"]."'><i class='icon-thumbs-up icon-white'></i> Confirmar Evento</a></td>";
+						echo "<td><a class='btn btn-warning' href='../controllers/rechazarEvento.php?id=".$obj["_id"]."'><i class='icon-thumbs-down icon-white'></i> Rechazar Evento</a></td>";	
 					}
 				}}
 				?>
@@ -40,6 +43,9 @@ $listaProximos=$evento->getInfoEventosProximos(date("Y-m-d"),$_SESSION['user_idE
 					echo "<td><a class='btn btn-primary' href='verInformacionEvento.php?id=".$obj["_id"]."'><i class='icon-glass icon-white'></i> Ver Informaci&oacute;n</a></td>";
 					if($tipo==0){
 						echo "<td><a class='btn btn-danger' href='../controllers/eliminarEvento.php?id=".$obj["_id"]."'><i class='icon-trash icon-white'></i> Eliminar evento</a></td></tr>";
+					} elseif ($tipo == 1) {
+						echo "<td><a class='btn btn-success' href='../controllers/confirmarEvento.php?id=".$obj["_id"]."'><i class='icon-thumbs-up icon-white'></i> Confirmar Evento;n</a></td>";
+						echo "<td><a class='btn btn-warning' href='../controllers/rechazarEvento.php?id=".$obj["_id"]."'><i class='icon-thumbs-up-down icon-white'></i> Rechazar Evento;n</a></td>";	
 					}
 				}}
 				?>
