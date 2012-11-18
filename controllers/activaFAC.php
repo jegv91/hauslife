@@ -18,8 +18,6 @@
 		//Llamada a funcion para registrar el FAC
 		$facModel->registrarFAC($facModel->matricula);
 		
-		//$FAC = TRUE;
-		
 		$correo = new Mail();
 		
 		$correo->to = "carlos_14_378@hotmail.com";
@@ -33,10 +31,11 @@
 		$correo->sendMail();
 		
 		print '<script type="text/javascript">'; 
-		print 'alert("Tu FAC ha sido Registrado")'; 
+		print 'alert("Tu FAC ha sido Registrado");'; 
+		print 'location.href = "../controllers/solicitudes.php";';
 		print '</script>';
 		
-		include_once("../controllers/solicitudes.php");
+		//include_once("../controllers/solicitudes.php");
 		
 	}else{
 		//echo "Debes especificar una contrase&ntilde;a y un usuario";

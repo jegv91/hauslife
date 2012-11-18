@@ -33,10 +33,11 @@
 		$correo->sendMail();
 		
 		print '<script type="text/javascript">'; 
-		print 'alert("Tu comprobante de domicilio para '.$Comprobante->destinatario.' se ha pedido")'; 
+		print 'alert("Tu comprobante de domicilio para '.$Comprobante->destinatario.' se ha pedido");';
+		print 'location.href = "../controllers/solicitudes.php";';
 		print '</script>';
 		
-		include_once("../controllers/solicitudes.php");
+		//include_once("../controllers/solicitudes.php");
 		
 	}else{
 		//echo "Debes especificar una contrase&ntilde;a y un usuario";
