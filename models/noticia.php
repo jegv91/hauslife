@@ -54,7 +54,7 @@ class Noticia extends ConexionDB {
 	}
 
 	public function getInfoNoticias(){
-		$$this->seleccionarColeccion('noticia');
+		$this->seleccionarColeccion('noticia');
 		$result = $this->buscar();
 		return $result;
 	}

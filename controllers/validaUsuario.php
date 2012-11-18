@@ -34,7 +34,7 @@
 			// Obtiene una instancia de usuario de acuerdo con la matricula o nomina
 			$reng = $userTemp->buscaUsuario();	
 		}else{
-			$error .= "La matrícula no tiene el formato adecuado.";
+			$error .= "La matrï¿½cula no tiene el formato adecuado.";
 			$reng = null;
 		}		
 		// Si el usuario existe
@@ -50,10 +50,10 @@
 				/*Redireccionamos al usuario acuerdo a sus permisos*/
 				switch($row->tipo){
 					/*El usuario es admin*/
-					case 0: header("location: ../Controllers/indexAdmin.php");
+					case 0: header("location: ../controllers/indexAdmin.php");
 					break;
 					/*El usuario es estudiante*/
-					case 1: header("location: ../Controllers/indexRes.php");
+					case 1: header("location: ../controllers/indexRes.php");
 					break;
 				}
 			} else {
@@ -73,6 +73,6 @@
 		// Redirecciona a la pagina de errores
 		$errores[] = $error;
 		$errores = array_envia($errores);
-		header("location: ../Controllers/error.php?error=$errores");
+		header("location: ../controllers/error.php?error=$errores");
     }
 ?>
