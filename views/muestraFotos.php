@@ -46,8 +46,8 @@
 		<?php 
 			$directory1 = "../fotoloader/server/php/files/medium/"; 
 			$directory2 = "../fotoloader/server/php/files/";
-			$images1 = glob("$directory1{*.jpg,*.png,*.JPG}",GLOB_BRACE);
-			$images2 = glob("$directory2{*.jpg,*.png,*.JPG}",GLOB_BRACE);	
+			$images1 = glob("$directory1{*.gif,*.jpg,*.jpeg,*.png,*.GIF,*.JPG,*.PNG,*.JPEG}",GLOB_BRACE);
+			$images2 = glob("$directory2{*.gif,*.jpg,*.jpeg,*.png,*.GIF,*.JPG,*.PNG,*.JPEG}",GLOB_BRACE);	
 		?>
         <div class="container">
             
