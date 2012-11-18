@@ -50,7 +50,7 @@ $listaProximos=$evento->getInfoEventosProximos(date("Y-m-d"),$_SESSION['user_idE
 					echo "<tr><td>".$obj["titulo"]."</td>";
 					echo "<td><a class='btn btn-primary' href='verInformacionEvento.php?id=".$obj["_id"]."'><i class='icon-glass icon-white'></i> Ver Informaci&oacute;n</a></td>";
 					if($tipo==0){
-						echo "<td><a class='btn btn-success' href='../controllers/subirFotos.php?id=".$obj["_id"]."'><i class='icon-camera icon-white'></i> Subir fotos</a></td>";
+						echo "<td><a class='btn btn-success' href='../controllers/detalleFotos.php?id=".$obj["_id"]."'><i class='icon-camera icon-white'></i> Subir fotos</a></td>";
 						echo "<td><a class='btn btn-success' href='../controllers/retroEventos.php?id=".$obj["_id"]."'><i class='icon-star icon-white'></i> Retroalimentar</a></td></tr>";
 					} elseif ($tipo == 1) {
 						echo "<td><a class='btn btn-success' href='../controllers/subirFotos.php?id=".$obj["_id"]."'><i class='icon-camera icon-white'></i> Ver fotos</a></td></tr>";
