@@ -11,12 +11,12 @@ require_once 'conexionDB.php';
 class Evento extends ConexionDB{ 
 
 	private $idPrefecto;
+	private $idEdificio;
 	private $fechaInicio;
 	private $fechaTermino;
 	private $descripcionFotografia;
 	private $fotografia;
 	private $titulo;
-	private $edificio;
 	private $presupuesto;
 
 	public function __construct() {

@@ -22,7 +22,7 @@
 	<br />
 	<div class="container">
 		<h1>Registrar Evento</h1>
-		<form class="form-horizontal" action="../controllers/registrarEvento.php" method="POST">
+		<form class="form-horizontal" action="../controllers/registrarEvento.php" method="POST" enctype="multipart/form-data">
 			<div style="display:table-cell;">
 			<div class="control-group">
 				<label class="control-label" for="titulo">T&iacute;tulo</label>
@@ -33,20 +33,20 @@
 			<div class="control-group">
 				<label class="control-label" for="presupuesto">Presupuesto</label>
 				<div class="controls">
-					<input type="text" class="money" name="delivery_charge" />
+					<input type="text" id="presupuesto" name="presupuesto" class="money"/>
 				</div>
 			</div>
 			<div class="control-group">
 				<div style="display:table-cell;">
 					<label class="control-label" for="inicioVentas">Fecha de inicio</label>
 					<div class="controls">
-						<input name="fechaRevision" type="text" class="span2"
+						<input name="fechaInicio1" type="text" class="span2"
 							value="2012-11-17"
-							id="dp2"> <span class="help-inline"></span>
+							id="fechaInicio1"> <span class="help-inline"></span>
 					</div>
 				</div>
 				<div style="display:table-cell;">
-					<input class="timepicker-2" id="dp1" type="text" style="width: 75px;" />
+					<input class="timepicker-2" id="fechaInicio2" name="fechaInicio2" type="text" style="width: 75px;" />
 					<i class="icon-time" style="margin: -2px 0 0 -22.5px; pointer-events: none; position: relative;"></i>
 				</div>
 				
@@ -55,19 +55,19 @@
 				<div style="display:table-cell;">
 					<label class="control-label" for="inicioVentas">Fecha de t&eacute;rmino</label>
 					<div class="controls">
-						<input name="fechaRevision" type="text" class="span2"
+						<input name="fechaFin1" type="text" class="span2"
 							value="2012-11-17"
-							id="dp3"> <span class="help-inline"></span>
+							id="fechaFin1"> <span class="help-inline"></span>
 					</div>
 				</div>
 				<div style="display:table-cell;">
-					<input class="timepicker-2" id="dp2" type="text" style="width: 75px;" />
+					<input class="timepicker-2" id="fechaFin2" name="fechaFin2" type="text" style="width: 75px;" />
 					<i class="icon-time" style="margin: -2px 0 0 -22.5px; pointer-events: none; position: relative;"></i>
 				</div>
 			</div>
 			</div>
 			<div style="display:table-cell;">
-				<input type='file' onchange="readURL(this);" /> <br/>
+				<input type='file' id="file" name="file" onchange="readURL(this);" /> <br/>
 				<img style="padding-left: 55px;" id="blah" src="#" alt="your image" />
 			</div>
 			
