@@ -10,15 +10,14 @@ require_once 'conexionDB.php';
 */ 
 class Evento extends ConexionDB{ 
 
+	private $idPrefecto;
 	private $fechaInicio;
 	private $fechaTermino;
 	private $descripcionFotografia;
 	private $fotografia;
 	private $titulo;
+	private $edificio;
 	private $presupuesto;
-	private $organizadores;
-	private $telefonoPadres;
-	private $idPrefecto;
 
 	public function __construct() {
 		$this->getVariablesClase(true);
@@ -56,6 +55,8 @@ class Evento extends ConexionDB{
 		if (is_null($id)) {
 			$this->guardar($evento);	
 		} else {
+			$id = $this->rellenarId($id);
+			$id = strtoupper($id);
 			$this->guardar($evento, $id);
 		}
 		
