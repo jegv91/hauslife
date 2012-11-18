@@ -17,7 +17,7 @@ include_once("../views/header_index.php");?>
 			<tr><th>fechaInicio</th><td><?php echo $data['fechaInicio']?></td></tr>
 			<tr><th>fechaTermino</th><td><?php echo $data['fechaTermino']?></td></tr>
 			<tr><th>descripcionFotografia</th><td><?php echo $data['descripcionFotografia']?></td></tr>
-			<tr><th>fotografia</th><td><?php echo $data['fotografia']?></td></tr>
+			<tr><th>fotografia</th><td><img src="<?php echo $data['fotografia'] ?>" width="268" heigth="176" /></td></tr>
 			<tr><th>titulo</th><td><?php echo $data['titulo']?></td></tr>
 			<tr><th>presupuesto</th><td><?php echo $data['presupuesto']?></td></tr>
 			</table>

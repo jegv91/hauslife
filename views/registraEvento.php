@@ -67,10 +67,10 @@
 			</div>
 			</div>
 			<div style="display:table-cell;">
-				&nbsp;<input id="lefile" type="file" style="display:none" onchange="readURL(this);">
+				&nbsp;<input id="file" type="file" name="file" style="display:none" onchange="readURL(this);">
 				<div class="input-append">
 				   <input id="photo" class="input-large" type="text">
-				   <a class="btn" onclick="$('input[id=lefile]').click();">Subir</a> 
+				   <a class="btn" onclick="$('input[id=file]').click();">Subir</a> 
 				</div>
 				<br/><br/>
 				<img style="padding-left: 54px;" id="blah" src="../img/up.png" alt="your image" />
@@ -96,7 +96,7 @@
 	<?php //include_once("../views/footer.html");?>
 	
 	<script type="text/javascript">
-		$('input[id=lefile]').change(function() {
+		$('input[id=file]').change(function() {
 		   $('#photo').val($(this).val());
 		}); 
 	</script>
