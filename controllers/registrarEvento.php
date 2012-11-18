@@ -2,7 +2,11 @@
 require_once '../models/eventos.php';
 require_once 'subirArchivo.php';
 
-if (isset($_SESSION['user_type']) AND $_SESSION['user_type'] == 0) {
+if(!isset($_SESSION)){
+	session_start();
+}
+
+if (isset($_SESSION['user_type'])) {
 	
 	//Datos de la forma Registrar Evento
 	if(isset($_SESSION['user_id']))
@@ -48,7 +52,7 @@ if (isset($_SESSION['user_type']) AND $_SESSION['user_type'] == 0) {
 		//Llamada a funcion para registrar el evento
 		$evento->registrarEvento($name);
 
-		//header("Location: ../views/listaResidentes.php");
+		header("Location: ../views/listaEventos.php");
 
 	} else {
 		//Redirigir a la pagina de crear evento

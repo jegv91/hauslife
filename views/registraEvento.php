@@ -71,8 +71,7 @@ include_once("../views/header_index.php");
 	</div>
 	</div>
 	<?php include_once("../views/footer.html");?>
-	
-	
+		
 	<script type="text/javascript">    
 	var options = {
 		width: 80 // The css width to be applied to the textfield

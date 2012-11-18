@@ -6,22 +6,29 @@ $not=new Noticia();
 $lista=$not->getInfoNoticias();
 $pageTitle="Noticias publicadas";
 include_once("../views/header_index.php");?>
-	<div class="container-fluid">
-      <div class="row-fluid">
+<div class="container-fluid">
+	<div class="row-fluid">
 		<h1>Noticias publicadas</h1>
-			<table class="table table-bordered">
-			<tr><th colspan=3>Noticia</th></tr>
+		<table class="table table-bordered">
+			<tr>
+				<th colspan=3>Noticia</th>
+			</tr>
 			<?php			
 			foreach ($lista as $obj) {
-				echo "<tr><td>".$obj["titulo"]."</td>";				
-				echo "<td><a class='btn btn-primary' href='../controllers/enviarNoticia.php?id=".$obj["_id"]."'><i class='icon-envelope icon-white'></i> Enviar por e-mail</a></td>";
-				echo "<td><a class='btn btn-danger' href='../controllers/eliminarNoticia.php?id=".$obj["_id"]."'><i class='icon-trash icon-white'></i>Eliminar noticia</a></td></tr>";				
+				echo "<tr><td>".$obj["titulo"]."</td>";
+				if($tipo==0){
+					echo "<td><a class='btn btn-primary' href='../controllers/enviarNoticia.php?id=".$obj["_id"]."'><i class='icon-envelope icon-white'></i> Enviar por e-mail</a></td>";
+					echo "<td><a class='btn btn-danger' href='../controllers/eliminarNoticia.php?id=".$obj["_id"]."'><i class='icon-trash icon-white'></i>Eliminar noticia</a></td></tr>";
+				} else {
+					echo "<td><a class='btn btn-primary' href='../views/infoNoticia.php?id=".$obj["_id"]."'><i class='icon-envelope icon-white'></i> Ver detalles</a></td>";
+				}
 			}
 			?>
-			</table>
-			<a class='btn' href='registraNoticia.php'><i class='icon-envelope'></i>Registrar noticia</a>
-		</div>
-		</div>
-		<?php include_once("../views/footer.html");?>
+		</table>
+		<a class='btn' href='registraNoticia.php'><i class='icon-envelope'></i>Registrar
+			noticia</a>
+	</div>
+</div>
+<?php include_once("../views/footer.html");?>
 </body>
 </html>
