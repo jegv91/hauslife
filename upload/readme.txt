@@ -1,0 +1,1 @@
+Esta carpeta debe ponerse un .gitignore para evitar mas trabajos
