@@ -119,7 +119,7 @@ body {
 						<a href="#" class="navbar-link"><?php echo $usuariologueado['nombre'];?>
 						</a>
 						<?php } elseif($tipo == 1 ) {?>
-						<a href="verInformacion.php?<?php echo $usuariologueado['_id'];?>"
+						<a href="../views/verInformacion.php?id=<?php echo $usuariologueado['_id'];?>"
 							class="navbar-link"><?php echo $usuariologueado['nombre'];?> </a>
 						<?php }
 						if($tipo != -1 ){?>
