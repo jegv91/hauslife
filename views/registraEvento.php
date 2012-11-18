@@ -22,7 +22,7 @@
 	<br />
 	<div class="container">
 		<h1>Registrar Evento</h1>
-		<form class="form-horizontal" action="../controllers/registrarEvento.php" method="POST">
+		<form class="form-horizontal" action="../controllers/registrarEvento.php" method="POST" enctype="multipart/form-data">
 			<div style="display:table-cell;">
 			<div class="control-group">
 				<label class="control-label" for="titulo">T&iacute;tulo</label>
