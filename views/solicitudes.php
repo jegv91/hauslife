@@ -2,10 +2,12 @@
 $solicitudes = true;
 $pageTitle="Noticias publicadas";
 include_once("../views/header_index.php");?> 
-		<br /><br />
 		<!--Inicio-->
 		<!--<div id="content"> -->
-		<div class = "form-actions">
+		<div class = "offset1">
+		<h1>Solicitudes</h1>
+		</div>
+		<div class = "offset1">
 			<dl>
 				<dt>
 					<?php 
@@ -74,8 +76,7 @@ include_once("../views/header_index.php");?>
 					<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
 				</div>
 			</div>
-			<a id="demo"></a>
-		</div>			
+		</div>
 		<?php include_once("../views/footer.html");?>
 	</body>
 </html>
