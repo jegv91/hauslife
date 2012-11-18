@@ -5,7 +5,7 @@ require_once '../models/noticia.php';
 //Objeto noticia
 $not=new Noticia();
 //Llamar a funcion para obtener el array asociativo con la informacion de cada noticia
-$lista=$not->getInfoNoticias();
+$lista=$not->getNoticiasRecientes();
 ?>
     <div class="container">     
         <div class="span10 offset1">
@@ -22,20 +22,20 @@ $lista=$not->getInfoNoticias();
          	 <div class="span4">
               <h2><?php echo $obj["titulo"];?></h2>
               <p><?php echo $obj["descripcion"];?></p>
-              <p><a class="btn" href="#">Ver detalles &raquo;</a></p>
+              <p><a class="btn" href="../views/infoNoticia.php?id=<?php echo $obj["_id"];?>">Ver detalles &raquo;</a></p>
             </div><!--/span-->
          	<?php } else if($cont == 3 || $cont == 6 ){?>
             <div class="span4">
               <h2><?php echo $obj["titulo"];?></h2>
               <p><?php echo $obj["descripcion"];?></p>
-              <p><a class="btn" href="#">Ver detalles &raquo;</a></p>
+              <p><a class="btn" href="../views/infoNoticia.php?id=<?php echo $obj["_id"];?>">Ver detalles &raquo;</a></p>
             </div><!--/span-->
           </div><!--/row-->
             <?php } else {?> 
              <div class="span4">
               <h2><?php echo $obj["titulo"];?></h2>
               <p><?php echo $obj["descripcion"];?></p>
-              <p><a class="btn" href="#">Ver detalles &raquo;</a></p>
+              <p><a class="btn" href="../views/infoNoticia.php?id=<?php echo $obj["_id"];?>">Ver detalles &raquo;</a></p>
             </div><!--/span-->          
          <?php }}?>         
         </div><!--/span-->

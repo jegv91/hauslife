@@ -21,7 +21,7 @@ include_once("../views/header_index.php");?>
 			<tr><th>titulo</th><td><?php echo $data['titulo']?></td></tr>
 			<tr><th>presupuesto</th><td><?php echo $data['presupuesto']?></td></tr>
 			</table>
-			<a class='btn btn-primary' href='listaEventos.php'><i class='icon-arrow-left icon-white'></i> Regresar</a>
+			<a class='btn btn-primary' onclick="history.back()" ><i class='icon-arrow-left icon-white'></i> Regresar</a>
 		</div>
 		</div>
 		<?php include_once("../views/footer.html");?>

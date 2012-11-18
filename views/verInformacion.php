@@ -20,7 +20,7 @@ include_once("../views/header_index.php");?>
 			<tr><th>Tel&eacute;fono de los padres</th><td><?php echo $data["telefonoPadres"]?></td></tr>
 			<tr><th>Comentarios</th><td><?php echo $data["comentarios"]?></td></tr>
 			</table>
-			<a class='btn btn-primary' href='listaResidentes.php'><i class='icon-arrow-left icon-white'></i> Regresar</a>
+			<a class='btn btn-primary' onclick="history.back()" ><i class='icon-arrow-left icon-white'></i> Regresar</a>
 		</div>
 		</div>
 		<?php include_once("../views/footer.html");?>

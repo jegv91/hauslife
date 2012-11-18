@@ -32,6 +32,11 @@ class ConexionDB {
 		}
 		return $result;
 	}
+	
+	protected function buscarOrdenado( $orden = null){
+		$result = $this->collection->find()->sort(array($orden=>-1));		
+		return $result;
+	}
 
 	protected function guardar($datos, $id = null){
 		if (is_null($id)) {

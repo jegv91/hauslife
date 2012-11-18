@@ -8,6 +8,7 @@ $pageTitle="Noticias publicadas";
 include_once("../views/header_index.php");?>
 <div class="container-fluid">
 	<div class="row-fluid">
+	<div class="span6 offset3">
 		<h1>Noticias publicadas</h1>
 		<table class="table table-bordered">
 			<tr>
@@ -25,9 +26,12 @@ include_once("../views/header_index.php");?>
 			}
 			?>
 		</table>
+		<?php if($tipo==0){?>
 		<a class='btn' href='registraNoticia.php'><i class='icon-envelope'></i>Registrar
 			noticia</a>
+		<?php }?>
 	</div>
+</div>
 </div>
 <?php include_once("../views/footer.html");?>
 </body>

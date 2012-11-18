@@ -24,8 +24,10 @@ include_once("../views/header_index.php");?>
 				}
 				?>
 			</table>
+			<?php if($tipo==0){?>
 			<a class='btn' href='registraEvento.php'><i class='icon-glass'></i>Registrar
 				evento</a>
+			<?php }?>
 		</div>
 	</div>
 </div>

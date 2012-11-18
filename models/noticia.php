@@ -66,6 +66,12 @@ class Noticia extends ConexionDB {
 		return $result; 	   	
 	}
 
+	public function getNoticiasRecientes(){
+		$this->seleccionarColeccion('noticia');		
+		$result = $this->buscarOrdenado("fecha");
+		return $result;
+	}
+	
 	public function eliminarNoticia($idNoticia){
 		$this->seleccionarColeccion('noticia');
 		$array = array('_id' => new MongoId($idNoticia));
