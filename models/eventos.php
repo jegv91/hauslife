@@ -96,18 +96,51 @@ class Evento extends ConexionDB{
 	public function confirmarEvento($idEvento, $idResidente){
 		$data = $this->getInfoEvento($idEvento);
 
+		$data = $data['asistentes'];
+
 		if (is_null($data))
 			$data = array();
 
+		if (!$this->checarConfirmacion($data, $idResidente)) {
+			array_push($data, $idResidente);
+
+			$data = array_values($data);
+
+			$newdata = array('$set' => array("asistentes" => $data));
+			$buscar = array('_id' => new MongoId ($idEvento));
+
+			$this->actualizar($buscar, $newdata);
+		}
+	}
+
+	public function checarConfirmacion($data, $idResidente){
+		if (is_null($data)) {
+			return false;
+		} elseif (in_array($idResidente, $data)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function rechazarEvento($idEvento, $idResidente){
+		$data = $this->getInfoEvento($idEvento);
+
 		$data = $data['asistentes'];
-		array_push($data, $idResidente);
 
-		$data = array_values($data);
+		if (is_null($data))
+			$data = array();
 
-		$newdata = array('$set' => array("asistentes" => $data));
-		$buscar = array('_id' => new MongoId ($idEvento));
+		if ($this->checarConfirmacion($data, $idResidente)) {
 
-		$this->actualizar($buscar, $newdata);
+			$index = array_search('idResidente', $input);
+			array_splice($data, $index, 1);
+
+			$newdata = array('$set' => array("asistentes" => $data));
+			$buscar = array('_id' => new MongoId ($idEvento));
+
+			$this->actualizar($buscar, $newdata);
+		}
 	}
 }
 ?>

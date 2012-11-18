@@ -23,7 +23,7 @@ $listaProximos=$evento->getInfoEventosProximos(date("Y-m-d"),$_SESSION['user_idE
 					echo "<tr><td>".$obj["titulo"]."</td>";
 					echo "<td><a class='btn btn-primary' href='verInformacionEvento.php?id=".$obj["_id"]."'><i class='icon-glass icon-white'></i> Ver Informaci&oacute;n</a></td>";
 					if($tipo==0){
-						echo "<td><a class='btn btn-danger' href='../controllers/eliminarEvento.php?id=".$obj["_id"]."'><i class='icon-trash icon-white'></i> Eliminar evento</a></td></tr>";
+						echo "<td><a class='btn btn-danger' href='../controllers/eliminarEvento.php?id=".$obj["_id"]."'><i class='icon-trash icon-white'></i> Confirmar evento</a></td></tr>";
 					}
 				}}
 				?>
