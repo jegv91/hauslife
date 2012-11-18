@@ -2,17 +2,22 @@
 if(!isset($_SESSION)){
 	session_start();
 }
-$matricula = $_SESSION['user_id'];
-$tipo = $_SESSION['user_type'];
-if($tipo == 1 ){
-	require_once '../models/residente.php';
-	//Objeto residente
-	$res=new Residente();
-	//Buscar al residente con la matricula
-	$usuariologueado = $res->buscarPorMatricula($matricula);	
-} else {
-	$usuariologueado = array("nombre"=>"Administrador");
+if(isset($_SESSION) && isset($_SESSION['user_id'])) {
+	$matricula = $_SESSION['user_id'];
+	$tipo = $_SESSION['user_type'];
+	if($tipo == 1 ){
+		require_once '../models/residente.php';
+		//Objeto residente
+		$res=new Residente();
+		//Buscar al residente con la matricula
+		$usuariologueado = $res->buscarPorMatricula($matricula);	
+	} else {
+		$usuariologueado = array("nombre"=>"Administrador");
+	}
+}else{
+	$tipo = -1;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,7 +86,7 @@ if($tipo == 1 ){
   </head>
 
   <body>
-
+	<?php if($tipo != -1){ ?>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -143,3 +148,4 @@ if($tipo == 1 ){
         </div>
       </div>
     </div>
+	<?php } ?>

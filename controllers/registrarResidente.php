@@ -1,4 +1,8 @@
 <?php
+	if(!isset($_SESSION)){
+	session_start();
+	}
+	
 	require_once '../models/residente.php';
 	require_once '../models/usuario.php';
 		//Datos de la forma registrarNoticia
@@ -48,5 +52,9 @@
 	$res->registrarResidente($res->matricula);
 	$usr->registrarUsuario();
 	
-	header("Location: ../views/listaResidentes.php");
+	if(isset($_SESSION) && isset($_SESSION['user_id'])) {
+		header("Location: ../views/listaResidentes.php");
+	}else{
+		header("Location: ../controllers/confirmacionRegistro.php");
+	}	
 ?>

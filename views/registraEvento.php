@@ -18,8 +18,6 @@
 </head>
 <body>
 	<?php include_once("../views/header_index.php");?>
-	<br />
-	<br />
 	<div class="container">
 		<h1>Registrar Evento</h1>
 		<form class="form-horizontal" action="../controllers/registrarEvento.php" method="POST" enctype="multipart/form-data">
@@ -81,7 +79,7 @@
 				<label class="control-label" for="descripcion">Descripci&oacute;n</label>
 				<div class="controls">
 					<textarea id="descripcion" name="descripcion" rows="6" cols="120" class="span6"
-					placeholder="Descripci&oacute;n del comentario"></textarea>
+					placeholder="Lo que sea que nos permita conocer conocer un poco m&aacute;s sobre el contenido de tu evento "></textarea>
 				</div>
 			</div>
 			<div class="control-group">
