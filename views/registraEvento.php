@@ -1,12 +1,28 @@
-<?php 
-$pageTitle="Registrar residente";
-$evento=true;
-include_once("../views/header_index.php");
-?>
-<div class="container-fluid">
-      <div class="row-fluid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Registrar Evento | Hauslife</title>
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+	<link href="../bootstrap/css/datepicker.css" rel="stylesheet" type="text/css" />
+	<link href="../bootstrap/css/timepicker.css" rel="stylesheet" type="text/css" />
+	<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../JavaScripts/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../JavaScripts/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="../bootstrap/js/bootstrap-timepicker.js"></script>
+	<script type="text/javascript" src="../bootstrap/js/jquery.bootstrap-money-field.js"></script>
+	
+</head>
+<body>
+	<?php //include_once("../views/header_index.php");?>
+	<br />
+	<br />
+	<div class="container">
 		<h1>Registrar Evento</h1>
-		<form class="form-horizontal" action="../controllers/registrarEvento.php" method="POST" enctype="multipart/form-data">
+		<form class="form-horizontal" action="../controllers/registrarEvento.php" method="POST">
 			<div style="display:table-cell;">
 			<div class="control-group">
 				<label class="control-label" for="titulo">T&iacute;tulo</label>
@@ -17,7 +33,7 @@ include_once("../views/header_index.php");
 			<div class="control-group">
 				<label class="control-label" for="presupuesto">Presupuesto</label>
 				<div class="controls">
-					<input type="text" id="presupuesto" name="presupuesto" class="money"/>
+					<input type="text" id="presupuesto" name="presupuesto" class="money"/>					
 				</div>
 			</div>
 			<div class="control-group">
@@ -41,7 +57,7 @@ include_once("../views/header_index.php");
 					<div class="controls">
 						<input name="fechaFin1" type="text" class="span2"
 							value="2012-11-17"
-							id="fechaFin1"> <span class="help-inline"></span>
+							id="fechaFin1"><span class="help-inline"></span>
 					</div>
 				</div>
 				<div style="display:table-cell;">
@@ -59,7 +75,7 @@ include_once("../views/header_index.php");
 				<label class="control-label" for="descripcion">Descripci&oacute;n</label>
 				<div class="controls">
 					<textarea id="descripcion" name="descripcion" rows="6" cols="120" class="span7"
-					placeholder="Descripci&oacute;n de la noticia"></textarea>
+					placeholder="Descripci&oacute;n del comentario"></textarea>
 				</div>
 			</div>
 			<div class="control-group">
@@ -69,9 +85,11 @@ include_once("../views/header_index.php");
 			</div>			
 		</form>
 	</div>
-	</div>
-	<?php include_once("../views/footer.html");?>
-		
+	<br />
+	<br />
+	<?php //include_once("../views/footer.html");?>
+	
+	
 	<script type="text/javascript">    
 	var options = {
 		width: 80 // The css width to be applied to the textfield
@@ -106,13 +124,13 @@ include_once("../views/header_index.php");
 
 		$(function(){
 			window.prettyPrint && prettyPrint();
-			$('#dp2').datepicker({
+			$('#fechaInicio1').datepicker({
 				format: 'yyyy-mm-dd'
 			});
 		});
 		$(function(){
 			window.prettyPrint && prettyPrint();
-			$('#dp3').datepicker({
+			$('#fechaFin1').datepicker({
 				format: 'yyyy-mm-dd'
 			});
 		});

@@ -27,13 +27,19 @@ if($tipo == 1 ){
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <?php if(isset($evento)){?>
-    <link href="../bootstrap/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+	<link href="../bootstrap/css/datepicker.css" rel="stylesheet" type="text/css" />
 	<link href="../bootstrap/css/timepicker.css" rel="stylesheet" type="text/css" />
+	<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../JavaScripts/jquery-1.7.2.js"></script>
 	<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="../JavaScripts/bootstrap-datepicker.js"></script>
 	<script type="text/javascript" src="../bootstrap/js/bootstrap-timepicker.js"></script>
 	<script type="text/javascript" src="../bootstrap/js/jquery.bootstrap-money-field.js"></script>
+	
 	<?php } else if(isset($solicitudes)){?>
 	<script type="text/javascript">	
 			function FACconf(){
