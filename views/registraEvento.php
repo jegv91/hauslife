@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Registrar Evento | Hauslife</title>
-	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-	<link href="../bootstrap/css/datepicker.css" rel="stylesheet" type="text/css" />
-	<link href="../bootstrap/css/timepicker.css" rel="stylesheet" type="text/css" />
-	<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="../JavaScripts/jquery-1.7.2.js"></script>
-	<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="../JavaScripts/bootstrap-datepicker.js"></script>
-	<script type="text/javascript" src="../bootstrap/js/bootstrap-timepicker.js"></script>
-	<script type="text/javascript" src="../bootstrap/js/jquery.bootstrap-money-field.js"></script>
-	
-</head>
-<body>
-	<?php //include_once("../views/header_index.php");?>
+<?php 
+$pageTitle="Registrar residente";
+$evento=true;
+include_once("../views/header_index.php");
+?>
 	<br />
 	<br />
 	<div class="container">

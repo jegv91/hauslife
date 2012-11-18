@@ -74,6 +74,13 @@ class Residente extends ConexionDB{
 		return $result; 
 	}
 
+	public function buscarPorMatricula($matricula){
+		$this->seleccionarColeccion('residente');
+		$residente = array('matricula' => $matricula);
+		$result = $this->buscar($residente);
+		return $result;
+	}
+	
 	public function eliminarResidente($idResidente){
 		$this->seleccionarColeccion('residente');
 		$array = array('_id' => new MongoId($idResidente));

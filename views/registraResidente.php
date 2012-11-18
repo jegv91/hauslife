@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Registrar residente | Hauslife</title>
-<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="../Css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../bootstrap/js/bootstrap.js" />
-<script type="text/javascript" src="../JavaScripts/jquery-1.7.2.js" />
-<script type="text/javascript">
-
-</script>
-</head>
-<body>
-	<?php //include_once("../views/header_index.php");?>
-	<div class="container">
+<?php 
+$pageTitle="Registrar residente";
+include_once("../views/header_index.php");?>
+	<div class="container-fluid">
+      <div class="row-fluid">
 		<h1>Registrar residente</h1>
 		<form class="form-horizontal" action="../controllers/registrarResidente.php" method="POST">
 			<div class="control-group">
@@ -92,8 +81,7 @@
 			</div>
 		</form>
 	</div>
-	<br />
-	<br />
-	<?php //include_once("../views/footer.html");?>
+	</div>
+	<?php include_once("footer.html");?>
 </body>
 </html>

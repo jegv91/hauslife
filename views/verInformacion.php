@@ -3,22 +3,8 @@ require_once '../models/residente.php';
 $id=$_GET["id"];
 $res=new Residente();
 $data=$res->getInfoResidente($id);
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Información de residente | Hauslife</title>
-<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<link href="../Css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="../bootstrap/js/bootstrap.js" />
-<script type="text/javascript" src="../JavaScripts/jquery-1.7.2.js" />
-<script type="text/javascript">
-
-</script>
-</head>
-<body>
-	<?php //include_once("../views/header_index.php");?>
+$pageTitle="Informaci&oacute;n del residente";
+include_once("../views/header_index.php");?>
 	<br/><br/>
 		<div class="container">
 		<h1>Informaci&oacute;n del residente</h1>		
