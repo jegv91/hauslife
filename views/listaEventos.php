@@ -1,5 +1,5 @@
 <?php 
-require_once '../models/evento.php';
+require_once '../models/eventos.php';
 //Objeto evento
 $evento=new Evento();
 //Llamar a funcion para obtener el array asociativo con la informacion de cada residente

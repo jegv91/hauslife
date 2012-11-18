@@ -17,7 +17,7 @@
 	
 </head>
 <body>
-	<?php //include_once("../views/header_index.php");?>
+	<?php include_once("../views/header_index.php");?>
 	<br />
 	<br />
 	<div class="container">
